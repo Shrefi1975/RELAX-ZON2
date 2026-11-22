@@ -1,0 +1,6 @@
+[build]
+  command = "pnpm run build"
+  publish = ".next"
+
+# Netlify's Next.js OpenNext adapter handles App Router and SSR routes automatically.
+# Avoid a catch-all /index.html SPA rewrite, which would override Next.js route handling.
