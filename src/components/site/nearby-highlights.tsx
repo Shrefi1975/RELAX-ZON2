@@ -1,4 +1,7 @@
-import { ArrowUpLeft, Building2, KeyRound, MapPin, MessageCircle, Sparkles, Sofa, Utensils, Wifi } from 'lucide-react'
+'use client'
+
+import { useState } from 'react'
+import { ArrowUpLeft, Building2, KeyRound, MapPin, MessageCircle, Sparkles, Sofa, Utensils, Wifi, ChevronDown } from 'lucide-react'
 
 const nearbyGroups = [
   { title: 'مساجد على بُعد مشي', places: [['مسجد الخيرات', '200 م'], ['مسجد التوحيد', '300 م']] },
@@ -22,6 +25,8 @@ const amenities = [
 ]
 
 export function AmenitiesHighlights() {
+  const [showAllMobile, setShowAllMobile] = useState(false)
+
   return <section className="amenities-section amenities-home" aria-labelledby="amenities-title">
     <div className="section-wrap">
       <header className="amenities-heading">
@@ -29,7 +34,7 @@ export function AmenitiesHighlights() {
         <h2 id="amenities-title">ماذا تجد في <bdi dir="ltr">Relax Zone2</bdi>؟</h2>
         <p>كل ما تحتاجه لتبدأ إقامتك براحة واطمئنان من أول ليلة.</p>
       </header>
-      <div className="amenities-grid">
+      <div className={`amenities-grid${showAllMobile ? ' is-expanded' : ''}`} id="amenities-list">
         {amenities.map(({ title, description, icon: Icon }, index) => <article className="amenity-card" key={title}>
           <span className="amenity-card-icon"><Icon aria-hidden="true" /></span>
           <div className="amenity-card-copy">
@@ -39,13 +44,20 @@ export function AmenitiesHighlights() {
           </div>
         </article>)}
       </div>
+      <button className="section-show-more" type="button" aria-expanded={showAllMobile} aria-controls="amenities-list" onClick={() => setShowAllMobile((visible) => !visible)}>{showAllMobile ? 'عرض أقل' : 'شاهد المزيد'} <ChevronDown aria-hidden="true" /></button>
     </div>
   </section>
 }
 
 export function NearbyHighlights() {
+  const [showAllMobile, setShowAllMobile] = useState(false)
+
   return <section className="destination-section nearby-home" id="nearby" aria-labelledby="nearby-title">
-    <div className="nearby-content section-wrap"><div className="nearby-heading"><span className="eyebrow">المدينة حولك</span><h3 id="nearby-title">كل ما تحتاجه <em>بالقرب منك</em></h3><p>أوقات ومسافات تقريبية من موقعنا في حي الشاطئ.</p></div><div className="nearby-grid">{nearbyGroups.map((group) => <article className="nearby-card" key={group.title}><h4>{group.title}</h4><ul>{group.places.map(([place, distance]) => <li key={place}><span>{place}</span><b>{distance}</b></li>)}</ul></article>)}</div></div>
+    <div className="nearby-content section-wrap">
+      <div className="nearby-heading"><span className="eyebrow">المدينة حولك</span><h3 id="nearby-title">كل ما تحتاجه <em>بالقرب منك</em></h3><p>أوقات ومسافات تقريبية من موقعنا في حي الشاطئ.</p></div>
+      <div className={`nearby-grid${showAllMobile ? ' is-expanded' : ''}`} id="nearby-list">{nearbyGroups.map((group) => <article className="nearby-card" key={group.title}><h4>{group.title}</h4><ul>{group.places.map(([place, distance]) => <li key={place}><span>{place}</span><b>{distance}</b></li>)}</ul></article>)}</div>
+      <button className="section-show-more" type="button" aria-expanded={showAllMobile} aria-controls="nearby-list" onClick={() => setShowAllMobile((visible) => !visible)}>{showAllMobile ? 'عرض أقل' : 'شاهد المزيد'} <ChevronDown aria-hidden="true" /></button>
+    </div>
   </section>
 }
 
