@@ -99,7 +99,7 @@ export function BookingRequestForm({ initialUnit }: { initialUnit?: string }) {
     </fieldset>
     <label className="booking-unit-field">نوع الشقة<select name="unit" value={apartmentType} onChange={(event) => setApartmentType(event.currentTarget.value)}>{availableApartmentTypes.map((type) => <option key={type.value} value={type.value}>{type.label}</option>)}</select></label>
     <div className="booking-fields booking-fields-compact">
-      <label>تاريخ الوصول (سنة / شهر / يوم)<input type="date" name="arrival" min={today} value={arrival} onChange={(event) => { setArrival(event.currentTarget.value); setDateError('') }} required /></label>
+      <label>تاريخ الوصول (يوم / شهر / سنة)<input type="date" name="arrival" min={today} value={arrival} onChange={(event) => { setArrival(event.currentTarget.value); setDateError('') }} required /></label>
       <label>عدد الليالي<input type="number" name="nights" min="1" max="365" inputMode="numeric" value={nights} onChange={(event) => { setNights(event.currentTarget.value); setDateError('') }} required /></label>
     </div>
     {dateError && <p className="booking-date-error" role="alert">{dateError}</p>}
