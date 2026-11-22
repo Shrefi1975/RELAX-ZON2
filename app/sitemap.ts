@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 
 export const dynamic = 'force-static'
 
-const siteUrl = 'https://novus-lilac-nu.vercel.app'
+const siteUrl = 'https://v0-relaxzoon2.vercel.app'
 const publicRoutes = ['/', '/about', '/blog', '/booking', '/gallery', '/location']
 
 export default function sitemap(): MetadataRoute.Sitemap {

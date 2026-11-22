@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://novus-lilac-nu.vercel.app/sitemap.xml
+Sitemap: https://v0-relaxzoon2.vercel.app/sitemap.xml
