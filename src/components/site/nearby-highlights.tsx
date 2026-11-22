@@ -1,4 +1,4 @@
-import { ArrowUpLeft, MapPin } from 'lucide-react'
+import { ArrowUpLeft, Building2, KeyRound, MapPin, MessageCircle, Sparkles, Sofa, Utensils, Wifi } from 'lucide-react'
 
 const nearbyGroups = [
   { title: 'مساجد على بُعد مشي', places: [['مسجد الخيرات', '200 م'], ['مسجد التوحيد', '300 م']] },
@@ -9,6 +9,39 @@ const nearbyGroups = [
   { title: 'أسواق ومولات', places: [['هيرا بلازا سنتر', '1.6 كم'], ['ريد سي مول', '2.2 كم'], ['سبيس مول', '2.5 كم'], ['سلطان مول', '2.6 كم'], ['حراء مول (ذهب ومجوهرات)', '3.2 كم']] },
   { title: 'ترفيه وحدائق', places: [["حديقة May’s Park", '400 م'], ['حديقة التقوى', '1.4 كم'], ['جامب أب JUMP UP (ألعاب أطفال)', '1.4 كم'], ['سينما فوكس، ريد سي مول', '2 كم'], ['أدفنتورا، ألعاب أطفال في ريد سي مول', '2.1 كم'], ['سينما حي', '2.4 كم'], ['آيس لاند: تزلج وبولينج وألعاب', '2.8 كم']] },
 ]
+
+const amenities = [
+  { title: 'مطبخ مجهز بالكامل', description: 'غسالة وثلاجة وميكروويف وأدوات أساسية في الشقق، باستثناء الاستوديو.', icon: Utensils },
+  { title: 'أثاث متكامل', description: 'غرفة نوم وصالة مريحة ومطبخ مجهز لتشعر وكأنك في بيتك.', icon: Sofa },
+  { title: 'إنترنت سريع', description: 'شبكة واي فاي مجانية متاحة في جميع الشقق.', icon: Wifi },
+  { title: 'نظافة منتظمة', description: 'تنظيف أسبوعي وتبديل للمفروشات وعناية بالتفاصيل.', icon: Sparkles },
+  { title: 'دخول ذاتي', description: 'كود خاص لباب الشقة أو استلام المفتاح من الاستقبال.', icon: KeyRound },
+  { title: 'موقع مناسب', description: 'في حي الشاطئ بجدة، بالقرب من الخدمات والمطاعم.', icon: MapPin },
+  { title: 'مصعد لجميع الأدوار', description: 'سهولة الوصول إلى جميع طوابق المبنى.', icon: Building2 },
+  { title: 'دعم مباشر', description: 'فريقنا متاح للرد عبر واتساب طوال أيام الأسبوع.', icon: MessageCircle },
+]
+
+export function AmenitiesHighlights() {
+  return <section className="amenities-section amenities-home" aria-labelledby="amenities-title">
+    <div className="section-wrap">
+      <header className="amenities-heading">
+        <span className="eyebrow">تفاصيل تهم إقامتك</span>
+        <h2 id="amenities-title">ماذا تجد في <bdi dir="ltr">Relax Zone2</bdi>؟</h2>
+        <p>كل ما تحتاجه لتبدأ إقامتك براحة واطمئنان من أول ليلة.</p>
+      </header>
+      <div className="amenities-grid">
+        {amenities.map(({ title, description, icon: Icon }, index) => <article className="amenity-card" key={title}>
+          <span className="amenity-card-icon"><Icon aria-hidden="true" /></span>
+          <div className="amenity-card-copy">
+            <span className="amenity-card-number">{String(index + 1).padStart(2, '0')}</span>
+            <h3>{title}</h3>
+            <p>{description}</p>
+          </div>
+        </article>)}
+      </div>
+    </div>
+  </section>
+}
 
 export function NearbyHighlights() {
   return <section className="destination-section nearby-home" id="nearby" aria-labelledby="nearby-title">

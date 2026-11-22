@@ -5,7 +5,7 @@ import { HomeGalleryCarousel } from '@/components/site/home-gallery-carousel'
 import { BookingRequestForm } from '@/components/site/booking-request-form'
 import { FloatingContactActions } from '@/components/site/floating-contact-actions'
 import { FaqSection } from '@/components/site/faq-section'
-import { DestinationSection, NearbyHighlights } from '@/components/site/nearby-highlights'
+import { AmenitiesHighlights, DestinationSection, NearbyHighlights } from '@/components/site/nearby-highlights'
 import { apartmentUnits, googleReviewsUrl } from '@/components/site/site-data'
 
 const photos = [
@@ -48,9 +48,11 @@ export default function Home() {
 
       <section className="trust-strip" aria-label="مزايا الإقامة"><div><span className="trust-icon"><ShieldCheck /></span><span><b>خصوصية وراحة</b><small>لك ولعائلتك</small></span></div><i /><div><span className="trust-icon"><Sparkles /></span><span><b>عناية بالتفاصيل</b><small>إقامة تليق بك</small></span></div><i /><div><span className="trust-icon"><MapPin /></span><span><b>موقع استراتيجي</b><small>قريب من كل ما تحتاج</small></span></div><i /><div><span className="trust-icon"><Wifi /></span><span><b>خدمات متكاملة</b><small>راحة بلا انقطاع</small></span></div></section>
 
+      <section className="apartments-section" id="gallery"><div className="section-wrap"><SectionTitle eyebrow="مساحات مختارة بعناية" title="اختر الشقة التي تناسب إقامتك" text="شقق مستقلة، لكل واحدة تفاصيلها وصورها الخاصة — لتختار وأنت مطمئن." /><ApartmentListings compact /><div className="apartment-catalog-footer"><span>لكل شقة معرض مستقل يضم صورها كاملة</span><a className="text-link" href="/gallery">استكشف الشقق والصور <ArrowLeft size={16} /></a></div></div></section>
+
       <HomeGalleryCarousel images={heroApartmentPhotos} />
 
-      <section className="apartments-section" id="gallery"><div className="section-wrap"><SectionTitle eyebrow="مساحات مختارة بعناية" title="اختر الشقة التي تناسب إقامتك" text="شقق مستقلة، لكل واحدة تفاصيلها وصورها الخاصة — لتختار وأنت مطمئن." /><ApartmentListings compact /><div className="apartment-catalog-footer"><span>لكل شقة معرض مستقل يضم صورها كاملة</span><a className="text-link" href="/gallery">استكشف الشقق والصور <ArrowLeft size={16} /></a></div></div></section>
+      <AmenitiesHighlights />
 
       <NearbyHighlights />
 
