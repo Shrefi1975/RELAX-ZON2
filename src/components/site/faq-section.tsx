@@ -1,4 +1,7 @@
-import { MessageCircle, Plus } from 'lucide-react'
+'use client'
+
+import { useState } from 'react'
+import { ChevronDown, MessageCircle, Plus } from 'lucide-react'
 
 const questions = [
   { question: 'ما وقت الدخول والخروج؟', answer: 'الدخول من الساعة 4 عصراً والخروج الساعة 2 ظهراً. للدخول المبكر تواصل معنا.' },
@@ -18,13 +21,16 @@ const questions = [
 ]
 
 export function FaqSection() {
+  const [showAllMobile, setShowAllMobile] = useState(false)
+
   return <section className="faq-section" aria-labelledby="faq-title">
     <div className="section-wrap">
       <div className="faq-heading"><span className="eyebrow">إجابات تهمك</span><h2 id="faq-title">الأسئلة <em>الشائعة</em></h2><p>كل ما تحتاج معرفته قبل الحجز، في مكان واحد.</p></div>
-      <div className="faq-list">{questions.map(({ question, answer }) => <details className="faq-item" key={question}>
+      <div className={`faq-list${showAllMobile ? ' is-expanded' : ''}`} id="faq-list">{questions.map(({ question, answer }) => <details className="faq-item" key={question}>
         <summary><span>{question}</span><Plus aria-hidden="true" /></summary>
         <p>{answer}</p>
       </details>)}</div>
+      <button className="section-show-more" type="button" aria-expanded={showAllMobile} aria-controls="faq-list" onClick={() => setShowAllMobile((visible) => !visible)}>{showAllMobile ? 'عرض أقل' : 'شاهد المزيد'} <ChevronDown aria-hidden="true" /></button>
       <a className="faq-contact button-gold" href="https://wa.me/966560920209" target="_blank" rel="noreferrer"><MessageCircle size={18} /> لم تجد إجابة سؤالك؟ تواصل معنا عبر واتساب</a>
     </div>
   </section>
