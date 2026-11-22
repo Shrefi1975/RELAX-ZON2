@@ -1,5 +1,11 @@
-import { redirect } from 'next/navigation'
+'use client'
+
+import { useEffect } from 'react'
 
 export default function ApartmentsPage() {
-  redirect('/gallery')
+  useEffect(() => {
+    window.location.replace('/gallery')
+  }, [])
+
+  return <main><p>جارٍ تحويلك إلى صفحة الشقق المفروشة. <a href="/gallery">انتقل الآن</a></p></main>
 }

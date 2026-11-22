@@ -1,8 +1,9 @@
+import { Suspense } from 'react'
 import { Check, Clock3, Headset, ShieldCheck } from 'lucide-react'
 
 
 import { PageHero } from '@/components/site/page-hero'
-import { BookingRequestForm } from '@/components/site/booking-request-form'
+import { BookingRequestForm, BookingRequestFormFromQuery } from '@/components/site/booking-request-form'
 import { apartmentPhotos } from '@/components/site/site-data'
 
 const assurances = [
@@ -12,11 +13,11 @@ const assurances = [
 ]
 
 
-function BookingPage({ unit }: { unit?: string }) {
+function BookingPage() {
 
   return <main className="inner-page" dir="rtl">
     <PageHero image={apartmentPhotos[2].src} eyebrow="خطوتك الأولى نحو الراحة" title="رحلتك تبدأ" highlight="بطلب بسيط" description="شاركنا مواعيدك وعدد الضيوف، وسنتواصل معك مباشرة لمراجعة التوفر والتفاصيل." />
-    <section className="booking-section booking-page-section"><div className="booking-inner"><div className="booking-intro"><span className="eyebrow">حجز واضح — تواصل شخصي</span><h2>أرسل طلبك،<br /><em>ونحن نهتم بالباقي</em></h2><p>لا يتم تأكيد الحجز تلقائياً. سنراجع التوفر ونتواصل معك على واتساب لتوضيح التفاصيل قبل إتمام أي خطوة.</p><div className="booking-assurances">{assurances.map(({ icon: Icon, title, text }) => <div key={title}><Icon /><span><b>{title}</b><small>{text}</small></span></div>)}</div><img className="booking-side-photo" src={apartmentPhotos[0].src} alt="جلسة الشقة المريحة" loading="lazy" /></div><BookingRequestForm initialUnit={unit} /></div></section>
+    <section className="booking-section booking-page-section"><div className="booking-inner"><div className="booking-intro"><span className="eyebrow">حجز واضح — تواصل شخصي</span><h2>أرسل طلبك،<br /><em>ونحن نهتم بالباقي</em></h2><p>لا يتم تأكيد الحجز تلقائياً. سنراجع التوفر ونتواصل معك على واتساب لتوضيح التفاصيل قبل إتمام أي خطوة.</p><div className="booking-assurances">{assurances.map(({ icon: Icon, title, text }) => <div key={title}><Icon /><span><b>{title}</b><small>{text}</small></span></div>)}</div><img className="booking-side-photo" src={apartmentPhotos[0].src} alt="جلسة الشقة المريحة" loading="lazy" /></div><Suspense fallback={<BookingRequestForm />}><BookingRequestFormFromQuery /></Suspense></div></section>
     <section className="trust-quote"><span>نرحّب بك في جدة</span><p>خطط لزيارتك، ودع علينا تفاصيل الراحة.</p><a className="text-link" href="/location">استكشف موقعنا في حي الشاطئ</a></section>
   </main>
 }
@@ -32,7 +33,6 @@ export const metadata = {
   twitter: { card: 'summary_large_image' },
 }
 
-export default async function BookingRoute({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
-  const params = await searchParams
-  return <BookingPage unit={typeof params.unit === 'string' ? params.unit : undefined} />
+export default function BookingRoute() {
+  return <BookingPage />
 }
