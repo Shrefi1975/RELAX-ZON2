@@ -34,7 +34,7 @@ function ApartmentCard({ unit, compact }: { unit: ApartmentUnit; compact: boolea
         return <li key={feature}><Icon size={16} /> {feature}</li>
       })}</ul>
       <div className="unit-thumbnail-rail" role="group" aria-label={`اختر صورة من ${unit.title}`}>
-        {visiblePhotos.map((thumbnail, index) => <button className={`unit-thumbnail ${selectedPhoto === index ? 'active' : ''}`} key={thumbnail.src} type="button" aria-label={`عرض ${thumbnail.alt}`} aria-pressed={selectedPhoto === index} onClick={() => setSelectedPhoto(index)}><img src={thumbnail.src} alt="" loading="lazy" /></button>)}
+        {visiblePhotos.map((thumbnail, index) => <button className={`unit-thumbnail ${selectedPhoto === index ? 'active' : ''}`} key={thumbnail.src} type="button" aria-label={`عرض ${thumbnail.alt}`} aria-pressed={selectedPhoto === index} onClick={() => setSelectedPhoto(index)}><img src={thumbnail.src} alt="" data-lightbox-group={lightboxGroup} loading="lazy" /></button>)}
         {compact && visiblePhotos.length < unit.photos.length && <a className="unit-thumbnail-more" href={`/gallery#unit-${unit.number}`} aria-label={`عرض جميع صور ${unit.title}`}><Images size={18} /><strong>+{unit.photos.length - visiblePhotos.length}</strong><small>صور أخرى</small></a>}
       </div>
       <div className="unit-card-footer"><span>{compact ? 'تفاصيل الوحدة ومعرضها الكامل' : 'تصفّح صور الوحدة قبل الحجز'}</span><a href={compact ? `/gallery#unit-${unit.number}` : `/booking?unit=${unit.number}`} aria-label={compact ? `شاهد صور ${unit.title}` : `اطلب حجز ${unit.title}`}>{compact ? 'كل الصور' : 'اطلب حجز هذه الوحدة'} <ArrowLeft size={16} /></a></div>
