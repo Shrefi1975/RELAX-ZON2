@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: 'ريلاكس زون 2 | شقق مفروشة فاخرة في جدة',
   description: 'شقق ريلاكس زون 2 المفروشة في حي الشاطئ بجدة.',
   applicationName: 'ريلاكس زون 2',
+  verification: {
+    google: 'qz6C9gChV3aKz7fBQSQI2MREDFcCPnc75K0Eab3XyVE',
+  },
   openGraph: {
     type: 'website',
     locale: 'ar_SA',
