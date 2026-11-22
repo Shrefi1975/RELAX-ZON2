@@ -1078,12 +1078,14 @@ button, input, select { font: inherit; }
   .home-hero-copy .eyebrow { font-size: 11px; }
   .home-hero-copy h1 { font-size: 34px; }
   .home-hero-copy p { max-width: 300px; font-size: 12px; }
-  .home-hero .booking-card { gap: 11px; padding: 15px; border-radius: 18px; }
+  .home-hero .booking-card { gap: 11px; padding: 15px; border-radius: 18px; background: rgba(23,19,13,.4); border-color: rgba(226,174,68,.9); box-shadow: 0 18px 42px rgba(0,0,0,.32),inset 0 1px rgba(255,255,255,.08); -webkit-backdrop-filter: blur(18px) saturate(125%); backdrop-filter: blur(18px) saturate(125%); }
   .home-hero .booking-card-heading { gap: 10px; padding-bottom: 10px; }
   .home-hero .booking-card-heading small { font-size: 11px; }
   .booking-fields-compact { gap: 9px; }
-  .home-hero .booking-card label { font-size: 11px; }
+  .home-hero .booking-card label { color: #f0e9dc; font-size: 11px; }
   .home-hero .booking-card input,.home-hero .booking-card select { min-height: 44px; padding: 9px 7px; font-size: 12px; }
+  .home-hero .booking-card input:not(.booking-date-picker),.home-hero .booking-card select { background-color: rgba(20,21,20,.98); border-color: rgba(229,200,145,.72); }
+  .home-hero .booking-card input::placeholder { color: #d4cbbb; opacity: 1; }
   .home-hero .booking-type-toggle button { min-height: 39px; font-size: 12px; }
   .home-hero .booking-price-summary { gap: 8px; padding: 10px; }
   .home-hero .booking-price-summary span { font-size: 10px; }
