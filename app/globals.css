@@ -1105,6 +1105,37 @@ button, input, select { font: inherit; }
   .whatsapp-float { left: 17px; bottom: 17px; }
   .footer-socials-brand img { width: 94px; height: 60px; }
 }
+
+.home-hero-headline-visual { position: relative; display: block; min-height: 2.7em; }
+.home-hero-message { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: flex-start; text-align: right; opacity: 0; animation: home-hero-message-cycle 16s infinite; }
+.home-hero-message-1 { animation-delay: 0s; }
+.home-hero-message-2 { animation-delay: 4s; }
+.home-hero-message-3 { animation-delay: 8s; }
+.home-hero-message-4 { animation-delay: 12s; }
+.home-hero-message > span { display: block; }
+@keyframes home-hero-message-cycle { 0%,24.99% { opacity: 1; } 25%,100% { opacity: 0; } }
+@keyframes home-hero-message-cycle-reduced { 0%,24.99% { opacity: 1; } 25%,100% { opacity: 0; } }
+@media(prefers-reduced-motion:reduce) {
+  .home-hero-message { animation-name: home-hero-message-cycle-reduced; animation-duration: 24s; }
+  .home-hero-message-1 { animation-delay: 0s; }
+  .home-hero-message-2 { animation-delay: 6s; }
+  .home-hero-message-3 { animation-delay: 12s; }
+  .home-hero-message-4 { animation-delay: 18s; }
+}
+@media(max-width:480px) {
+  .home-hero-headline-visual { min-height: 2.4em; }
+}
+
+.booking-arrival-field { display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+.booking-arrival-field > label { direction: rtl; text-align: right; }
+.booking-date-control { position: relative; display: block; width: 100%; min-width: 0; }
+.booking-date-control .booking-date-text { direction: rtl; text-align: right; padding-inline-end: 54px; }
+.booking-date-control .booking-date-text::placeholder { direction: rtl; text-align: right; opacity: 1; font-size: inherit; }
+.booking-date-control .booking-date-picker { position: absolute; inset-inline-end: 0; top: 0; z-index: 2; width: 54px; min-width: 54px; height: 100%; min-height: 0; padding: 0; border: 0; border-radius: 11px; background: transparent; opacity: 0; cursor: pointer; }
+.booking-date-control .booking-date-picker::-webkit-calendar-picker-indicator { width: 100%; height: 100%; cursor: pointer; }
+.booking-date-control .booking-date-calendar { position: absolute; inset-inline-end: 18px; top: 50%; z-index: 1; display: flex; width: 18px; height: 18px; transform: translateY(-50%); color: inherit; pointer-events: none; }
+.booking-date-control .booking-date-calendar svg { width: 100%; height: 100%; }
+.booking-date-control .booking-date-picker:focus-visible + .booking-date-calendar { outline: 2px solid #e6a716; outline-offset: 4px; border-radius: 3px; }
 @media(max-width:360px) {
   .home-hero-content { gap: 10px; padding: 82px 14px 20px; }
   .home-hero-copy h1 { margin: 5px 0; font-size: 29px; line-height: 1.2; }

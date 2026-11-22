@@ -3,7 +3,7 @@
 
 import { useMemo, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
-import { ArrowLeft, MessageCircle } from 'lucide-react'
+import { ArrowLeft, CalendarDays, MessageCircle } from 'lucide-react'
 import { apartmentUnits, bookingRates, phoneNumber } from './site-data'
 
 const formatPrice = (amount: number) => new Intl.NumberFormat('ar-SA').format(amount)
@@ -33,12 +33,40 @@ function getTodayDate() {
   return date.toISOString().slice(0, 10)
 }
 
+function normalizeDateDigits(value: string) {
+  return value
+    .replace(/[٠-٩]/g, (digit) => String('٠١٢٣٤٥٦٧٨٩'.indexOf(digit)))
+    .replace(/[۰-۹]/g, (digit) => String('۰۱۲۳۴۵۶۷۸۹'.indexOf(digit)))
+}
+
+function parseArrivalDate(value: string) {
+  const match = normalizeDateDigits(value).trim().match(/^(\d{1,2})\s*[\/.-]\s*(\d{1,2})\s*[\/.-]\s*(\d{4})$/)
+  if (!match) return ''
+
+  const day = Number(match[1])
+  const month = Number(match[2])
+  const year = Number(match[3])
+  const date = new Date(Date.UTC(year, month - 1, day))
+
+  if (year < 1000 || date.getUTCFullYear() !== year || date.getUTCMonth() !== month - 1 || date.getUTCDate() !== day) return ''
+
+  return `${String(year).padStart(4, '0')}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`
+}
+
+function formatArrivalDate(value: string) {
+  if (!value) return ''
+
+  const [year, month, day] = value.split('-')
+  return `${day} / ${month} / ${year}`.replace(/\d/g, (digit) => String.fromCharCode(0x0660 + Number(digit)))
+}
+
 export function BookingRequestForm({ initialUnit }: { initialUnit?: string }) {
   const [bookingType, setBookingType] = useState<'daily' | 'monthly'>('daily')
   const availableApartmentTypes = getAvailableApartmentTypes(initialUnit)
   const initialType = availableApartmentTypes.find((type) => type.units.includes(initialUnit ?? ''))?.value ?? availableApartmentTypes[0].value
   const [apartmentType, setApartmentType] = useState<string>(initialType)
   const [arrival, setArrival] = useState('')
+  const [arrivalDisplay, setArrivalDisplay] = useState('')
   const [nights, setNights] = useState('1')
   const [dateError, setDateError] = useState('')
   const today = getTodayDate()
@@ -99,10 +127,32 @@ export function BookingRequestForm({ initialUnit }: { initialUnit?: string }) {
     </fieldset>
     <label className="booking-unit-field">نوع الشقة<select name="unit" value={apartmentType} onChange={(event) => setApartmentType(event.currentTarget.value)}>{availableApartmentTypes.map((type) => <option key={type.value} value={type.value}>{type.label}</option>)}</select></label>
     <div className="booking-fields booking-fields-compact">
-      <label>تاريخ الوصول (يوم / شهر / سنة)<input type="date" name="arrival" min={today} value={arrival} onChange={(event) => { setArrival(event.currentTarget.value); setDateError('') }} required /></label>
+      <div className="booking-arrival-field">
+        <label htmlFor="arrival-display" dir="rtl">تاريخ الوصول</label>
+        <div className="booking-date-control" dir="rtl">
+          <input id="arrival-display" className="booking-date-text" type="text" inputMode="numeric" autoComplete="off" placeholder="يوم / شهر / سنة" dir="rtl" value={arrivalDisplay} onChange={(event) => {
+            const value = event.currentTarget.value
+            const parsedDate = parseArrivalDate(value)
+            setArrivalDisplay(value)
+            setArrival(parsedDate && parsedDate >= today ? parsedDate : '')
+            setDateError('')
+          }} onBlur={() => {
+            const parsedDate = parseArrivalDate(arrivalDisplay)
+            if (parsedDate && parsedDate >= today) setArrivalDisplay(formatArrivalDate(parsedDate))
+          }} required aria-invalid={Boolean(dateError)} aria-describedby={dateError ? 'arrival-date-format arrival-date-error' : 'arrival-date-format'} />
+          <input className="booking-date-picker" type="date" name="arrival" min={today} value={arrival} dir="rtl" aria-label="اختيار تاريخ الوصول من التقويم" onChange={(event) => {
+            const value = event.currentTarget.value
+            setArrival(value)
+            setArrivalDisplay(formatArrivalDate(value))
+            setDateError('')
+          }} />
+          <span className="booking-date-calendar" aria-hidden="true"><CalendarDays /></span>
+        </div>
+        <span className="sr-only" id="arrival-date-format">أدخل اليوم ثم الشهر ثم السنة، أو اختر التاريخ من التقويم.</span>
+      </div>
       <label>عدد الليالي<input type="number" name="nights" min="1" max="365" inputMode="numeric" value={nights} onChange={(event) => { setNights(event.currentTarget.value); setDateError('') }} required /></label>
     </div>
-    {dateError && <p className="booking-date-error" role="alert">{dateError}</p>}
+    {dateError && <p className="booking-date-error" id="arrival-date-error" role="alert">{dateError}</p>}
     <div className="booking-price-summary" aria-live="polite">
       <span>التكلفة التقديرية{variesPrice ? ' (تبدأ من)' : ''} · {formatPrice(unitPrice)} ر.س / {periodLabel}</span>
       <strong>{formatPrice(estimatedTotal)} <small>ر.س</small></strong>

@@ -35,6 +35,12 @@ const homeHeroSlides = [
   { desktop: '/hero-03-desktop.webp', mobile: '/hero-03-mobile.webp' },
   { desktop: '/hero-04-desktop.webp', mobile: '/hero-04-mobile.webp' },
 ]
+const homeHeroMessages = [
+  { first: 'نوم هادئ', second: 'وبداية أجمل' },
+  { first: 'جلسات تجمعكم', second: 'براحة وخصوصية' },
+  { first: 'تفاصيل أنيقة', second: 'تمنحك الراحة' },
+  { first: 'مساحة رحبة', second: 'في قلب جدة' },
+]
 const heroApartmentPhotos = getApartmentCoverPhotos(['10', '2', '5'])
 function SectionTitle({ eyebrow, title, text }: { eyebrow: string; title: string; text?: string }) {
   return <div className="section-title"><span className="eyebrow">{eyebrow}</span><h2>{title}</h2>{text && <p>{text}</p>}</div>
@@ -48,7 +54,7 @@ export default function Home() {
         <ApartmentPhotoSlideshow images={homeHeroSlides} className="home-hero-slideshow" label="لقطات من الشقق" priority />
         <div className="home-hero-shade" />
         <div className="home-hero-content">
-          <div className="home-hero-copy"><span className="eyebrow">ريلاكس زون 2 · جدة</span><h1 id="home-title">إقامتك القادمة<br /><em>تبدأ براحة</em></h1><p>شقق مفروشة تمنحك مساحة أوسع وراحة أقرب، في قلب جدة.</p></div>
+          <div className="home-hero-copy"><span className="eyebrow">ريلاكس زون 2 · جدة</span><h1 id="home-title" className="home-hero-headline"><span className="sr-only">شقق مفروشة تمنحك الراحة في قلب جدة</span><span className="home-hero-headline-visual" aria-hidden="true">{homeHeroMessages.map((message, index) => <span className={`home-hero-message home-hero-message-${index + 1}`} key={message.first}><span>{message.first}</span><em>{message.second}</em></span>)}</span></h1><p>شقق مفروشة تمنحك مساحة أوسع وراحة أقرب، في قلب جدة.</p></div>
           <BookingRequestForm />
         </div>
       </section>
