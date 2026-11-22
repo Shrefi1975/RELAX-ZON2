@@ -10,14 +10,19 @@ type ApartmentPhotoSlideshowProps = {
   className: string
   label: string
   priority?: boolean
+  activeIndex?: number
 }
 
-export function ApartmentPhotoSlideshow({ images, className, label, priority = false }: ApartmentPhotoSlideshowProps) {
-  return <div className={`apartment-photo-slideshow ${className}`} role="img" aria-label={label}>
+export function ApartmentPhotoSlideshow({ images, className, label, priority = false, activeIndex }: ApartmentPhotoSlideshowProps) {
+  const controlledClass = activeIndex === undefined ? '' : ' apartment-photo-slideshow-controlled'
+
+  return <div className={`apartment-photo-slideshow ${className}${controlledClass}`} role="img" aria-label={label}>
     {images.map((image, index) => {
       const slideNumber = index + 1
       const isPriorityImage = priority && slideNumber === 1
-      return <picture key={image.desktop} className={`apartment-photo-slide apartment-photo-slide-${slideNumber}`}>
+      const isActiveImage = activeIndex === index
+      const activeClass = activeIndex !== undefined && isActiveImage ? ' apartment-photo-slide-current' : ''
+      return <picture key={image.desktop} className={`apartment-photo-slide apartment-photo-slide-${slideNumber}${activeClass}`}>
         <source media="(max-width: 800px)" srcSet={image.mobile} />
         <Image
           src={image.desktop}
