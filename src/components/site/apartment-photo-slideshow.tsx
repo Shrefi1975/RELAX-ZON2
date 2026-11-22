@@ -1,4 +1,9 @@
-type SlideshowImage = { src: string }
+import Image from 'next/image'
+
+type SlideshowImage = {
+  desktop: string
+  mobile: string
+}
 
 type ApartmentPhotoSlideshowProps = {
   images: SlideshowImage[]
@@ -12,17 +17,20 @@ export function ApartmentPhotoSlideshow({ images, className, label, priority = f
     {images.map((image, index) => {
       const slideNumber = index + 1
       const isPriorityImage = priority && slideNumber === 1
-
-      return <img
-        key={image.src}
-        className={`apartment-photo-slide apartment-photo-slide-${slideNumber}`}
-        src={image.src}
-        alt=""
-        aria-hidden="true"
-        loading={isPriorityImage ? 'eager' : 'lazy'}
-        fetchPriority={isPriorityImage ? 'high' : 'auto'}
-        decoding="async"
-      />
+      return <picture key={image.desktop} className={`apartment-photo-slide apartment-photo-slide-${slideNumber}`}>
+        <source media="(max-width: 800px)" srcSet={image.mobile} />
+        <Image
+          src={image.desktop}
+          alt=""
+          aria-hidden="true"
+          fill
+          unoptimized
+          loading={isPriorityImage ? 'eager' : 'lazy'}
+          fetchPriority={isPriorityImage ? 'high' : 'auto'}
+          decoding="async"
+          className="apartment-photo-slide-image"
+        />
+      </picture>
     })}
   </div>
 }
