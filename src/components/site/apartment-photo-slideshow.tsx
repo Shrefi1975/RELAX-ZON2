@@ -25,7 +25,7 @@ export function ApartmentPhotoSlideshow({ images, className, label, priority = f
           aria-hidden="true"
           fill
           unoptimized
-          loading={isPriorityImage ? 'eager' : 'lazy'}
+          loading={priority ? 'eager' : 'lazy'}
           fetchPriority={isPriorityImage ? 'high' : 'auto'}
           decoding="async"
           className="apartment-photo-slide-image"

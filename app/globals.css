@@ -1018,8 +1018,11 @@ button, input, select { font: inherit; }
 .home-main > .destination-home { order: 7; }
 .home-hero { min-height: 750px; position: relative; display: flex; align-items: center; overflow: hidden; background: #16140f; }
 .home-hero-slideshow { position: absolute; inset: 0; overflow: hidden; background: #211f19; }
-.home-hero-slideshow .apartment-photo-slide { animation-duration: 20s; }
-.home-hero-slideshow .apartment-photo-slide-4 { animation-delay: 15s; }
+.home-hero-slideshow .apartment-photo-slide { animation-duration: 24s; }
+.home-hero-slideshow .apartment-photo-slide-1 { animation-delay: 0s; }
+.home-hero-slideshow .apartment-photo-slide-2 { animation-delay: 6s; }
+.home-hero-slideshow .apartment-photo-slide-3 { animation-delay: 12s; }
+.home-hero-slideshow .apartment-photo-slide-4 { animation-delay: 18s; }
 .home-hero-slideshow .apartment-photo-slide-image { object-position: center 48%; }
 .home-hero-shade { position: absolute; inset: 0; background: linear-gradient(270deg,#15130ff0 0%,#15130fe0 39%,#15130fa6 70%,#15130f5c 100%),linear-gradient(0deg,#17140e 0%,transparent 28%,#17140e45 100%); }
 .home-hero-content { position: relative; z-index: 1; width: min(1160px,100%); margin-inline: auto; padding: 124px 6% 42px; display: grid; grid-template-columns: minmax(0,1fr) minmax(350px,.82fr); align-items: center; gap: clamp(28px,5vw,72px); }
@@ -1028,7 +1031,7 @@ button, input, select { font: inherit; }
 .home-hero-copy h1 { margin: 15px 0 13px; color: #fbf5e9; font-size: clamp(36px,5vw,62px); line-height: 1.35; font-weight: 600; }
 .home-hero-copy h1 em { color: #e9ad28; font-style: normal; }
 .home-hero-copy p { max-width: 420px; margin: 0; color: #e0d8c7; font-size: 15px; line-height: 1.9; }
-.home-hero .booking-card { gap: 14px; padding: 22px; background: #17130de8; border-color: #d2a44772; border-radius: 22px; box-shadow: 0 22px 65px #09080588; backdrop-filter: blur(13px); }
+.home-hero .booking-card { gap: 14px; padding: 22px; background: #17130dcc; border-color: #d2a44772; border-radius: 22px; box-shadow: 0 22px 65px #09080588; backdrop-filter: blur(13px); }
 .home-hero .booking-card-heading { padding-bottom: 12px; }
 .home-hero .booking-card h3 { font-size: 19px; }
 .home-hero .booking-card-heading small { font-size: 12px; }
