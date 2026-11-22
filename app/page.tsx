@@ -44,14 +44,22 @@ export default function Home() {
   return (
     <main className="home-main" dir="rtl">
 
-      <section className="home-hero" id="home" aria-labelledby="home-title">
-        <ApartmentPhotoSlideshow images={homeHeroSlides} className="home-hero-slideshow" label="لقطات من الشقق" priority />
-        <div className="home-hero-shade" />
-        <div className="home-hero-content">
-          <div className="home-hero-copy"><span className="eyebrow">ريلاكس زون 2 · جدة</span><h1 id="home-title">إقامتك القادمة<br /><em>تبدأ براحة</em></h1><p>شقق مفروشة تمنحك مساحة أوسع وراحة أقرب، في قلب جدة.</p></div>
+      <div className="home-hero-shell">
+        <section className="home-hero" id="home" aria-labelledby="home-title">
+          <ApartmentPhotoSlideshow images={homeHeroSlides} className="home-hero-slideshow" label="لقطات من الشقق" priority />
+          <div className="home-hero-shade" />
+          <div className="home-hero-content">
+            <div className="home-hero-copy"><span className="eyebrow">ريلاكس زون 2 · جدة</span><h1 id="home-title">إقامتك القادمة<br /><em>تبدأ براحة</em></h1><p>شقق مفروشة تمنحك مساحة أوسع وراحة أقرب، في قلب جدة.</p></div>
+          </div>
+        </section>
+        <section className="home-booking-panel" aria-labelledby="home-booking-title">
+          <div className="home-booking-intro">
+            <h2 id="home-booking-title">احجز إقامتك بكل سهولة</h2>
+            <p>حدد نوع الإقامة وتاريخ الوصول، وسنتواصل معك لتأكيد التوفر والتفاصيل.</p>
+          </div>
           <BookingRequestForm />
-        </div>
-      </section>
+        </section>
+      </div>
 
       <section className="trust-strip" aria-label="مزايا الإقامة"><div><span className="trust-icon"><ShieldCheck /></span><span><b>خصوصية وراحة</b><small>لك ولعائلتك</small></span></div><i /><div><span className="trust-icon"><Sparkles /></span><span><b>عناية بالتفاصيل</b><small>إقامة تليق بك</small></span></div><i /><div><span className="trust-icon"><MapPin /></span><span><b>موقع استراتيجي</b><small>قريب من كل ما تحتاج</small></span></div><i /><div><span className="trust-icon"><Wifi /></span><span><b>خدمات متكاملة</b><small>راحة بلا انقطاع</small></span></div></section>
 
