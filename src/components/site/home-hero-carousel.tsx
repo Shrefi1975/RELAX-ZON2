@@ -45,7 +45,7 @@ export function HomeHeroCarousel({ children }: HomeHeroCarouselProps) {
     <div className="home-hero-shade bg-gradient-to-l from-black/75 via-black/50 to-black/20" aria-hidden="true" />
     <div className="home-hero-content">
       <div className="home-hero-copy">
-        <span className="eyebrow">ريلاكس زون 2 · جدة</span>
+        <span className="eyebrow">جدة - حي الشاطئ</span>
         <h1 id="home-title" className="home-hero-headline">
           <span className="sr-only">شقق مفروشة تمنحك الراحة في قلب جدة</span>
           <span className="home-hero-headline-visual relative block w-full min-w-0 overflow-hidden" aria-hidden="true">

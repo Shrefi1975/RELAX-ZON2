@@ -1025,7 +1025,7 @@ button, input, select { font: inherit; }
 .home-hero-content { position: relative; z-index: 2; width: min(1160px,100%); min-width: 0; margin-inline: auto; padding: 124px 6% 42px; display: grid; grid-template-columns: minmax(0,1fr) minmax(350px,.82fr); align-items: center; gap: clamp(28px,5vw,72px); }
 .home-hero-copy { max-width: 510px; min-width: 0; }
 .home-hero .booking-card { min-width: 0; }
-.home-hero-copy .eyebrow { color: #e1b660; }
+.home-hero-copy .eyebrow { color: #e1b660; font-size: 12px; }
 .home-hero-copy h1 { margin: 15px 0 13px; color: #fbf5e9; font-size: clamp(36px,5vw,62px); line-height: 1.35; font-weight: 600; }
 .home-hero-copy h1 em { color: #e9ad28; font-style: normal; }
 .home-hero-copy p { max-width: 420px; margin: 0; color: #e0d8c7; font-size: 15px; line-height: 1.9; }
@@ -1074,7 +1074,7 @@ button, input, select { font: inherit; }
 }
 @media(max-width:560px) {
   .home-hero-content { gap: 24px; padding: 105px 16px 28px; }
-  .home-hero-copy .eyebrow { font-size: 11px; }
+  .home-hero-copy .eyebrow { font-size: 12px; }
   .home-hero-copy h1 { font-size: 34px; }
   .home-hero-copy p { max-width: 300px; font-size: 12px; }
   .home-hero .booking-card { gap: 9px; padding: 13px; border-radius: 18px; background: rgba(23,19,13,.4); border-color: rgba(226,174,68,.9); box-shadow: 0 18px 42px rgba(0,0,0,.32),inset 0 1px rgba(255,255,255,.08); -webkit-backdrop-filter: blur(18px) saturate(125%); backdrop-filter: blur(18px) saturate(125%); }
