@@ -2,6 +2,7 @@
 'use client'
 
 import { useMemo, useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { ArrowLeft, MessageCircle } from 'lucide-react'
 import { apartmentUnits, bookingRates, phoneNumber } from './site-data'
 
@@ -100,4 +101,11 @@ export function BookingRequestForm({ initialUnit }: { initialUnit?: string }) {
     </div>
     <button className="button-whatsapp full" type="submit"><MessageCircle aria-hidden="true" /> احجز عبر واتساب <ArrowLeft aria-hidden="true" /></button>
   </form>
+}
+
+export function BookingRequestFormFromQuery() {
+  const searchParams = useSearchParams()
+  const unit = searchParams.get('unit') ?? undefined
+
+  return <BookingRequestForm initialUnit={unit} />
 }

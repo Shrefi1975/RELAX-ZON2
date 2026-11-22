@@ -1,6 +1,23 @@
 [build]
   command = "pnpm run build"
-  publish = ".next"
+  publish = "out"
 
-# Netlify's Next.js OpenNext adapter handles App Router and SSR routes automatically.
-# Avoid a catch-all /index.html SPA rewrite, which would override Next.js route handling.
+[[redirects]]
+  from = "/apartments"
+  to = "/gallery"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=63072000"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
