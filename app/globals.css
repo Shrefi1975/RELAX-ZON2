@@ -306,7 +306,8 @@ button, input, select { font: inherit; }
 .photo-grid figcaption span { color: #d2ad70; font-size: 12px; }
 .photo-grid figcaption b { font-size: 14px; font-weight: 500; }
 .booking-page-section { padding-block: 90px; }
-.booking-page-section .booking-inner { grid-template-columns: 1fr 1.1fr; align-items: start; gap: 65px; }
+.booking-page-section .booking-inner { grid-template-columns: 1fr; align-items: start; gap: 35px; max-width: 700px; }
+.booking-form-mobile-only { display: none; }
 .booking-intro>p { color: #b9b3a9; font-size: 14px; line-height: 2; }
 .booking-assurances { display: grid; gap: 15px; margin: 25px 0; }
 .booking-assurances>div { display: flex; align-items: center; gap: 13px; color: #d2aa69; }
@@ -355,8 +356,9 @@ button, input, select { font: inherit; }
   .apartment-photo-story { grid-template-columns: 1fr; gap: 28px; padding: 45px 7%; }
   .apartment-photo-story img { height: 310px; }
   .photo-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
-  .booking-page-section .booking-inner { grid-template-columns: 1fr; gap: 35px; }
-  .booking-side-photo { height: 220px; }
+ .booking-page-section .booking-inner { grid-template-columns: 1fr; gap: 35px; max-width: 540px; }
+ .booking-form-mobile-only { display: block; }
+ .booking-side-photo { height: 220px; }
   .location-page-grid { grid-template-columns: 1fr; }
   .location-map { height: 340px; }
 }
