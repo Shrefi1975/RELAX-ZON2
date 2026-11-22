@@ -3,6 +3,7 @@ import { ArrowUpLeft, CarFront, MapPin, Navigation, Phone } from 'lucide-react'
 
 import { PageHero } from '@/components/site/page-hero'
 import { apartmentPhotos, mapUrl } from '@/components/site/site-data'
+import { socialPreviewImage, socialPreviewImageUrl } from '@/components/site/social-metadata'
 
 const nearby = [
   { icon: MapPin, title: 'حي الشاطئ', text: 'موقع مميز شمال جدة' },
@@ -25,6 +26,7 @@ export const metadata = {
     title: 'موقعنا | ريلاكس زون 2 جدة',
     description: 'اعثر على ريلاكس زون 2 في حي الشاطئ بجدة وافتح الاتجاهات عبر خرائط Google.',
     type: 'website',
+    images: [socialPreviewImage],
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { card: 'summary_large_image', images: [socialPreviewImageUrl] },
 }

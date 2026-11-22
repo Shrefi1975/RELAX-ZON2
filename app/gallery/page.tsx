@@ -1,6 +1,7 @@
 import { PageHero } from '@/components/site/page-hero'
 import { ApartmentGallery } from '@/components/site/apartment-gallery'
 import { apartmentUnits } from '@/components/site/site-data'
+import { socialPreviewImage, socialPreviewImageUrl } from '@/components/site/social-metadata'
 
 
 
@@ -19,6 +20,7 @@ export const metadata = {
     title: 'الشقق المفروشة | ريلاكس زون 2 جدة',
     description: 'تعرّف على شقق ريلاكس زون 2 المفروشة، ومرافق كل وحدة، واستكشف صورها قبل الحجز.',
     type: 'website',
+    images: [socialPreviewImage],
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { card: 'summary_large_image', images: [socialPreviewImageUrl] },
 }

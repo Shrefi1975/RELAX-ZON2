@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import { ImageLightbox } from '@/src/components/site/image-lightbox'
 import { SiteFooter } from '@/src/components/site/site-footer'
 import { SiteHeader } from '@/src/components/site/site-header'
+import { socialPreviewImage, socialPreviewImageUrl } from '@/components/site/social-metadata'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -15,8 +16,9 @@ export const metadata: Metadata = {
     siteName: 'ريلاكس زون 2',
     title: 'ريلاكس زون 2 | شقق مفروشة فاخرة في جدة',
     description: 'شقق مفروشة فاخرة في جدة',
+    images: [socialPreviewImage],
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { card: 'summary_large_image', images: [socialPreviewImageUrl] },
   icons: {
     icon: '/favicon.png',
     apple: '/apple-icon.png',

@@ -1,6 +1,7 @@
 import { ArrowLeft, HeartHandshake, MapPin, ShieldCheck, Sparkles } from 'lucide-react'
 import { PageHero } from '@/components/site/page-hero'
 import { apartmentUnits } from '@/components/site/site-data'
+import { socialPreviewImage, socialPreviewImageUrl } from '@/components/site/social-metadata'
 
 
 
@@ -27,6 +28,7 @@ export const metadata = {
     title: 'من نحن | ريلاكس زون 2 للشقق المفروشة في جدة',
     description: 'تعرّف على ريلاكس زون 2 وفلسفتنا في الضيافة والراحة والخصوصية في حي الشاطئ بجدة.',
     type: 'website',
+    images: [socialPreviewImage],
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { card: 'summary_large_image', images: [socialPreviewImageUrl] },
 }

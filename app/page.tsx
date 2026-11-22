@@ -7,6 +7,7 @@ import { FloatingContactActions } from '@/components/site/floating-contact-actio
 import { FaqSection } from '@/components/site/faq-section'
 import { AmenitiesHighlights, DestinationSection, NearbyHighlights } from '@/components/site/nearby-highlights'
 import { apartmentUnits, googleReviewsUrl } from '@/components/site/site-data'
+import { socialPreviewImage, socialPreviewImageUrl } from '@/components/site/social-metadata'
 
 const photos = [
   { src: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1795094316161-l4IPoWWeOXIKRISMCddTOi6BcwD43z.jpg', alt: 'صالة معيشة عصرية بإطلالة واسعة' },
@@ -81,6 +82,7 @@ export const metadata = {
     title: 'ريلاكس زون 2 | شقق مفروشة فاخرة في جدة',
     description: 'استعرض شقق ريلاكس زون 2 المفروشة في جدة، وتعرّف على شقة 14 ومرافق كل وحدة، ثم اطلب حجزك اليومي أو الشهري عبر واتساب.',
     type: 'website',
+    images: [socialPreviewImage],
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { card: 'summary_large_image', images: [socialPreviewImageUrl] },
 }

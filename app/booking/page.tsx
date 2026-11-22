@@ -5,6 +5,7 @@ import { Check, Clock3, Headset, ShieldCheck } from 'lucide-react'
 import { PageHero } from '@/components/site/page-hero'
 import { BookingRequestForm, BookingRequestFormFromQuery } from '@/components/site/booking-request-form'
 import { apartmentPhotos } from '@/components/site/site-data'
+import { socialPreviewImage, socialPreviewImageUrl } from '@/components/site/social-metadata'
 
 const assurances = [
   { icon: ShieldCheck, title: 'طلب آمن وواضح', text: 'نراجع تفاصيلك قبل تأكيد أي حجز.' },
@@ -29,8 +30,9 @@ export const metadata = {
     title: 'احجز إقامتك | ريلاكس زون 2 جدة',
     description: 'أرسل طلب الحجز وتواصل مع فريق ريلاكس زون 2 في حي الشاطئ بجدة عبر واتساب.',
     type: 'website',
+    images: [socialPreviewImage],
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { card: 'summary_large_image', images: [socialPreviewImageUrl] },
 }
 
 export default function BookingRoute() {

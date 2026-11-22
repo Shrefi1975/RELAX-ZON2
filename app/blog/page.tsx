@@ -1,6 +1,7 @@
 import { ArrowLeft } from 'lucide-react'
 import { blogPosts } from '@/components/site/blog-data'
 import { PageHero } from '@/components/site/page-hero'
+import { socialPreviewImage, socialPreviewImageUrl } from '@/components/site/social-metadata'
 
 
 
@@ -24,6 +25,7 @@ export const metadata = {
     title: 'مدونة ريلاكس زون 2 | نصائح لإقامة مريحة في جدة',
     description: 'أفكار ونصائح تساعدك على اختيار الشقة والتخطيط لإقامة أهدأ في جدة.',
     type: 'website',
+    images: [socialPreviewImage],
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { card: 'summary_large_image', images: [socialPreviewImageUrl] },
 }
