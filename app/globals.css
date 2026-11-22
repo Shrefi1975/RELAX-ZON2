@@ -1029,7 +1029,7 @@ button, input, select { font: inherit; }
 .home-hero-copy h1 { margin: 15px 0 13px; color: #fbf5e9; font-size: clamp(36px,5vw,62px); line-height: 1.35; font-weight: 600; }
 .home-hero-copy h1 em { color: #e9ad28; font-style: normal; }
 .home-hero-copy p { max-width: 420px; margin: 0; color: #e0d8c7; font-size: 15px; line-height: 1.9; }
-.home-hero .booking-card { gap: 14px; padding: 22px; background: #17130dcc; border-color: #d2a44772; border-radius: 22px; box-shadow: 0 22px 65px #09080588; backdrop-filter: blur(13px); }
+.home-hero .booking-card { gap: 14px; padding: 22px; background: #17130dcc; border-color: #d2a44772; border-radius: 22px; box-shadow: 0 22px 65px #09080588; backdrop-filter: blur(13px); opacity: .84; }
 .home-hero .booking-card-heading { padding-bottom: 12px; }
 .home-hero .booking-card h3 { font-size: 19px; }
 .home-hero .booking-card-heading small { font-size: 12px; }
