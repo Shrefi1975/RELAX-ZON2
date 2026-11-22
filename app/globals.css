@@ -20,7 +20,7 @@ button, input, select { font: inherit; }
 .footer-logo { width: 152px; height: 75px; }
 .brand-mark { width: 43px; height: 43px; display: grid; place-items: center; border: 1px solid #c99a50; border-radius: 50%; color: #d8ad68; font: 600 17px Georgia, serif; position: relative; }
 .brand-mark span { color: #f4efe5; margin-right: -3px; }
-.brand-name { font-size: 16px; font-weight: 700; color: #f4efe5; }
+.brand-name { font-size: 14px; font-weight: 700; color: #f4efe5; }
 .brand-name b { color: #d3a65e; }
 .brand-name small { display: block; color: #aaa397; font-size: 10px; font-weight: 400; margin-top: 3px; }
 .nav-links { display: flex; align-items: center; gap: 31px; color: #d3cec4; font-size: 13px; }
