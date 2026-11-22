@@ -12,7 +12,7 @@ export function SiteHeader() {
 
   return (
     <header className="site-header">
-      <a className="brand" href="/" aria-label="ريلاكس زون 2 - الرئيسية"><img className="brand-logo" src={logoUrl} alt="شعار ريلاكس زون 2" /></a>
+      <a className="brand" href="/" aria-label="ريلاكس زون 2 - الرئيسية"><img className="brand-logo" src={logoUrl} alt="شعار ريلاكس زون 2" /><span className="brand-name">ريلاكس زون <b>2</b></span></a>
       <button className="menu-toggle" aria-label={open ? 'إغلاق القائمة' : 'فتح القائمة'} aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button>
       <nav className={open ? 'nav-links open' : 'nav-links'} aria-label="التنقل الرئيسي">
         {sitePages.map((page) => <a key={page.href} href={page.href} aria-current={pathname === page.href ? 'page' : undefined} onClick={() => setOpen(false)}>{page.label}</a>)}
