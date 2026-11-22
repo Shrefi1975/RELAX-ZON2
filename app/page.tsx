@@ -1,6 +1,6 @@
 import { ArrowLeft, ArrowUpLeft, MapPin, ShieldCheck, Sparkles, Wifi } from 'lucide-react'
 import { ApartmentListings } from '@/components/site/apartment-listings'
-import { ApartmentPhotoSlideshow } from '@/components/site/apartment-photo-slideshow'
+import { HomeHeroCarousel } from '@/components/site/home-hero-carousel'
 import { HomeGalleryCarousel } from '@/components/site/home-gallery-carousel'
 import { BookingRequestForm } from '@/components/site/booking-request-form'
 import { FloatingContactActions } from '@/components/site/floating-contact-actions'
@@ -29,18 +29,6 @@ function getApartmentCoverPhotos(unitNumbers: string[]) {
   })
 }
 
-const homeHeroSlides = [
-  { desktop: '/hero-01-desktop.webp', mobile: '/hero-01-mobile.webp' },
-  { desktop: '/hero-02-desktop.webp', mobile: '/hero-02-mobile.webp' },
-  { desktop: '/hero-03-desktop.webp', mobile: '/hero-03-mobile.webp' },
-  { desktop: '/hero-04-desktop.webp', mobile: '/hero-04-mobile.webp' },
-]
-const homeHeroMessages = [
-  { first: 'نوم هادئ', second: 'وبداية أجمل' },
-  { first: 'جلسات تجمعكم', second: 'براحة وخصوصية' },
-  { first: 'تفاصيل أنيقة', second: 'تمنحك الراحة' },
-  { first: 'مساحة رحبة', second: 'في قلب جدة' },
-]
 const heroApartmentPhotos = getApartmentCoverPhotos(['10', '2', '5'])
 function SectionTitle({ eyebrow, title, text }: { eyebrow: string; title: string; text?: string }) {
   return <div className="section-title"><span className="eyebrow">{eyebrow}</span><h2>{title}</h2>{text && <p>{text}</p>}</div>
@@ -50,14 +38,9 @@ export default function Home() {
   return (
     <main className="home-main" dir="rtl">
 
-      <section className="home-hero" id="home" aria-labelledby="home-title">
-        <ApartmentPhotoSlideshow images={homeHeroSlides} className="home-hero-slideshow" label="لقطات من الشقق" priority />
-        <div className="home-hero-shade" />
-        <div className="home-hero-content">
-          <div className="home-hero-copy"><span className="eyebrow">ريلاكس زون 2 · جدة</span><h1 id="home-title" className="home-hero-headline"><span className="sr-only">شقق مفروشة تمنحك الراحة في قلب جدة</span><span className="home-hero-headline-visual" aria-hidden="true">{homeHeroMessages.map((message, index) => <span className={`home-hero-message home-hero-message-${index + 1}`} key={message.first}><span>{message.first}</span><em>{message.second}</em></span>)}</span></h1><p>شقق مفروشة تمنحك مساحة أوسع وراحة أقرب، في قلب جدة.</p></div>
-          <BookingRequestForm />
-        </div>
-      </section>
+      <HomeHeroCarousel>
+        <BookingRequestForm />
+      </HomeHeroCarousel>
 
       <section className="trust-strip" aria-label="مزايا الإقامة"><div><span className="trust-icon"><ShieldCheck /></span><span><b>خصوصية وراحة</b><small>لك ولعائلتك</small></span></div><i /><div><span className="trust-icon"><Sparkles /></span><span><b>عناية بالتفاصيل</b><small>إقامة تليق بك</small></span></div><i /><div><span className="trust-icon"><MapPin /></span><span><b>موقع استراتيجي</b><small>قريب من كل ما تحتاج</small></span></div><i /><div><span className="trust-icon"><Wifi /></span><span><b>خدمات متكاملة</b><small>راحة بلا انقطاع</small></span></div></section>
 
