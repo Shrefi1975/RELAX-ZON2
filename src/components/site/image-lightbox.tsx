@@ -16,7 +16,18 @@ export function ImageLightbox({ children }: { children: React.ReactNode }) {
     const images = Array.from(rootRef.current?.querySelectorAll<HTMLImageElement>('img:not(.brand-logo):not([aria-hidden="true"]):not(.lightbox-preview)') ?? [])
     if (!group) return images
     const albumImages = images.filter((image) => image.dataset.lightboxGroup === group && !image.closest('.unit-photo-stage'))
-    return albumImages.length ? albumImages : images.filter((image) => image.dataset.lightboxGroup === group)
+    const groupedImages = albumImages.length ? albumImages : images.filter((image) => image.dataset.lightboxGroup === group)
+    const orderedImages = [
+      ...groupedImages.filter((image) => image.closest('.unit-thumbnail')),
+      ...groupedImages.filter((image) => !image.closest('.unit-thumbnail')),
+    ]
+    const seenSources = new Set<string>()
+    return orderedImages.filter((image) => {
+      const source = image.currentSrc || image.src
+      if (seenSources.has(source)) return false
+      seenSources.add(source)
+      return true
+    })
   }
 
   const getImageDescription = (image: HTMLImageElement) => image.alt || image.closest('button')?.getAttribute('aria-label')?.replace(/^عرض\s*/, '') || 'صورة للشقق'
