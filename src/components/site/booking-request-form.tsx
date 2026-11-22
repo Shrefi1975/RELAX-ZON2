@@ -20,6 +20,13 @@ const apartmentTypes = (() => {
   return [...groups.values()]
 })()
 
+const excludedApartmentTypeLabel = 'غرفةنوموصالةومطبخ'
+const normalizeApartmentTypeLabel = (label: string) => label.replace(/\s/g, '')
+const getAvailableApartmentTypes = (initialUnit?: string) =>
+  apartmentTypes.filter(
+    (type) => normalizeApartmentTypeLabel(type.label) !== excludedApartmentTypeLabel || type.units.includes(initialUnit ?? ''),
+  )
+
 function getTodayDate() {
   const date = new Date()
   date.setMinutes(date.getMinutes() - date.getTimezoneOffset())
@@ -28,13 +35,14 @@ function getTodayDate() {
 
 export function BookingRequestForm({ initialUnit }: { initialUnit?: string }) {
   const [bookingType, setBookingType] = useState<'daily' | 'monthly'>('daily')
-  const initialType = apartmentTypes.find((type) => type.units.includes(initialUnit ?? ''))?.value ?? apartmentTypes[0].value
+  const availableApartmentTypes = getAvailableApartmentTypes(initialUnit)
+  const initialType = availableApartmentTypes.find((type) => type.units.includes(initialUnit ?? ''))?.value ?? availableApartmentTypes[0].value
   const [apartmentType, setApartmentType] = useState<string>(initialType)
   const [arrival, setArrival] = useState('')
-  const [nights, setNights] = useState('2')
+  const [nights, setNights] = useState('1')
   const [dateError, setDateError] = useState('')
   const today = getTodayDate()
-  const selectedType = apartmentTypes.find((type) => type.value === apartmentType) ?? apartmentTypes[0]
+  const selectedType = availableApartmentTypes.find((type) => type.value === apartmentType) ?? availableApartmentTypes[0]
   const groupRates = bookingRates.filter((r) => selectedType.units.includes(r.number))
   const selectedUnit = (initialUnit && groupRates.find((r) => r.number === initialUnit)) || [...groupRates].sort((x, y) => (bookingType === 'daily' ? x.daily - y.daily : x.monthly - y.monthly))[0] || bookingRates[0]
   const variesPrice = new Set(groupRates.map((r) => bookingType === 'daily' ? r.daily : r.monthly)).size > 1 && !(initialUnit && groupRates.some((r) => r.number === initialUnit))
@@ -89,9 +97,9 @@ export function BookingRequestForm({ initialUnit }: { initialUnit?: string }) {
         <button type="button" className={bookingType === 'monthly' ? 'active' : ''} aria-pressed={bookingType === 'monthly'} onClick={() => setBookingType('monthly')}>إيجار شهري</button>
       </div>
     </fieldset>
-    <label className="booking-unit-field">نوع الشقة<select name="unit" value={apartmentType} onChange={(event) => setApartmentType(event.currentTarget.value)}>{apartmentTypes.map((type) => <option key={type.value} value={type.value}>{type.label}</option>)}</select></label>
+    <label className="booking-unit-field">نوع الشقة<select name="unit" value={apartmentType} onChange={(event) => setApartmentType(event.currentTarget.value)}>{availableApartmentTypes.map((type) => <option key={type.value} value={type.value}>{type.label}</option>)}</select></label>
     <div className="booking-fields booking-fields-compact">
-      <label>تاريخ الوصول<input type="date" name="arrival" min={today} value={arrival} onChange={(event) => { setArrival(event.currentTarget.value); setDateError('') }} required /></label>
+      <label>تاريخ الوصول (سنة / شهر / يوم)<input type="date" name="arrival" min={today} value={arrival} onChange={(event) => { setArrival(event.currentTarget.value); setDateError('') }} required /></label>
       <label>عدد الليالي<input type="number" name="nights" min="1" max="365" inputMode="numeric" value={nights} onChange={(event) => { setNights(event.currentTarget.value); setDateError('') }} required /></label>
     </div>
     {dateError && <p className="booking-date-error" role="alert">{dateError}</p>}
