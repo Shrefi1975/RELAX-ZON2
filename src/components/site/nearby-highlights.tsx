@@ -4,8 +4,7 @@ import { useState } from 'react'
 import { ArrowDown, ArrowUp, ArrowUpLeft, Building2, KeyRound, MapPin, MessageCircle, Sparkles, Sofa, Utensils, Wifi } from 'lucide-react'
 
 const nearbyGroups = [
-  { title: 'مساجد على بُعد مشي', places: [['مسجد الخيرات', '200 م'], ['مسجد التوحيد', '300 م']] },
-  { title: 'سوبرماركت وبقالة', places: [['دكان', '350 م'], ['أسواق البشية', '500 م'], ['تموينات الغربية المتحدة', '550 م'], ['الدانوب', '1 كم']] },
+  { title: 'مساجد قريبة', places: [['مسجد الاحسان', '200 م']] },
   { title: 'صيدليات', places: [['صيدلية النهدي', '250 م'], ['صيدلية الدواء', '350 م'], ['صيدلية ديار الشاطئ', '850 م']] },
   { title: 'محطات بنزين', places: [['محطة نفط', '250 م'], ['محطة النهضة', '650 م']] },
   { title: 'مطاعم', places: [['مطبخ همام: سليق وأكلات شعبية', '200 م'], ['مطعم وشواية الشاطئ: دجاج مشوي', '500 م'], ['كاس جبن: مطور وسندويتشات', '500 م'], ['ماكدونالدز: وجبات سريعة', '550 م'], ['مطعم شرقي: أكلات مصرية', '750 م'], ['مطعم السدة: مندي وأكلات عربية', '1.2 كم'], ['BYB: برجر وريسوتو', '1.4 كم']] },
@@ -32,7 +31,7 @@ export function AmenitiesHighlights() {
     <div className="section-wrap">
       <header className="amenities-heading">
         <span className="eyebrow">تفاصيل تهم إقامتك</span>
-        <h2 id="amenities-title">ماذا تجد في <bdi dir="ltr">Relax Zone2</bdi>؟</h2>
+        <h2 id="amenities-title">ماذا يوجد في <bdi dir="ltr">Relax Zone2</bdi></h2>
         <p>كل ما تحتاجه لتبدأ إقامتك براحة واطمئنان من أول ليلة.</p>
       </header>
       <div className={`amenities-grid${showAllMobile ? ' is-expanded' : ''}`} id="amenities-list">
@@ -57,7 +56,7 @@ export function NearbyHighlights() {
 
   return <section className="destination-section nearby-home" id="nearby" aria-labelledby="nearby-title">
     <div className="nearby-content section-wrap">
-      <div className="nearby-heading"><span className="eyebrow">المدينة حولك</span><h3 id="nearby-title">كل ما تحتاجه <em>بالقرب منك</em></h3><p>أوقات ومسافات تقريبية من موقعنا في حي الشاطئ.</p></div>
+      <div className="nearby-heading"><span className="eyebrow">ماذا يوجد حولك</span><h3 id="nearby-title">كل ما تحتاجه <em>بالقرب منك</em></h3><p>أوقات ومسافات تقريبية من موقعنا في حي الشاطئ.</p></div>
       <div className={`nearby-grid${showAllMobile ? ' is-expanded' : ''}`} id="nearby-list">{nearbyGroups.map((group) => <article className="nearby-card" key={group.title}><h4>{group.title}</h4><ul>{group.places.map(([place, distance]) => <li key={place}><span>{place}</span><b>{distance}</b></li>)}</ul></article>)}</div>
       <button className="section-show-more" type="button" aria-expanded={showAllMobile} aria-controls="nearby-list" onClick={() => setShowAllMobile((visible) => !visible)}>{showAllMobile ? 'عرض أقل' : 'شاهد المزيد'} <MoreIcon className="show-more-icon" aria-hidden="true" /></button>
     </div>
