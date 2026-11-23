@@ -2,7 +2,7 @@
 'use client'
 
 import { useState } from 'react'
-import { ArrowLeft, Bath, BedDouble, ChevronDown, ChevronLeft, ChevronRight, Coffee, Images, Sofa, Sun } from 'lucide-react'
+import { ArrowDown, ArrowLeft, ArrowUp, Bath, BedDouble, ChevronLeft, ChevronRight, Coffee, Images, Sofa, Sun } from 'lucide-react'
 import { apartmentUnits } from './site-data'
 
 type ApartmentUnit = (typeof apartmentUnits)[number]
@@ -45,11 +45,12 @@ function ApartmentCard({ unit, compact }: { unit: ApartmentUnit; compact: boolea
 export function ApartmentListings({ compact = false }: { compact?: boolean }) {
   const [showAllMobile, setShowAllMobile] = useState(false)
   const sortedUnits = [...apartmentUnits].sort((first, second) => Number(first.number) - Number(second.number))
+  const MoreIcon = showAllMobile ? ArrowUp : ArrowDown
 
   return <>
     <div className={`apartment-listings ${compact ? 'compact-listings' : 'full-listings'} ${showAllMobile ? 'show-all-mobile' : ''}`}>
       {sortedUnits.map((unit) => <ApartmentCard key={unit.number} unit={unit} compact={compact} />)}
     </div>
-    {compact && <button className="apartments-show-more" type="button" aria-expanded={showAllMobile} onClick={() => setShowAllMobile((visible) => !visible)}>{showAllMobile ? 'عرض شقق أقل' : 'شاهد المزيد من الشقق'} <ChevronDown size={18} aria-hidden="true" /></button>}
+    {compact && <button className="apartments-show-more" type="button" aria-expanded={showAllMobile} onClick={() => setShowAllMobile((visible) => !visible)}>{showAllMobile ? 'عرض شقق أقل' : 'شاهد المزيد من الشقق'} <MoreIcon className="show-more-icon" aria-hidden="true" /></button>}
   </>
 }

@@ -8,7 +8,7 @@
 @theme inline {
   --color-background: var(--background); --color-foreground: var(--foreground); --color-card: var(--card); --color-card-foreground: var(--card-foreground); --color-popover: var(--popover); --color-popover-foreground: var(--popover-foreground); --color-primary: var(--primary); --color-primary-foreground: var(--primary-foreground); --color-secondary: var(--secondary); --color-secondary-foreground: var(--secondary-foreground); --color-muted: var(--muted); --color-muted-foreground: var(--muted-foreground); --color-accent: var(--accent); --color-accent-foreground: var(--accent-foreground); --color-destructive: var(--destructive); --color-border: var(--border); --color-input: var(--input); --color-ring: var(--ring); --radius-sm: calc(var(--radius) * .6); --radius-md: calc(var(--radius) * .8); --radius-lg: var(--radius); --radius-xl: calc(var(--radius) * 1.4);
 }
-:root { --background: #1c201e; --foreground: #f4efe5; --card: #222321; --card-foreground: #f4efe5; --popover: #222321; --popover-foreground: #f4efe5; --primary: #c39851; --primary-foreground: #17140f; --secondary: #302f2b; --secondary-foreground: #e9e2d7; --muted: #292a28; --muted-foreground: #aaa398; --accent: #d0a45e; --accent-foreground: #17140f; --destructive: #b9473b; --border: #403d35; --input: #33332e; --ring: #c39851; --radius: .6rem; color-scheme: dark; }
+:root { --background: #f6f2ea; --foreground: #302d27; --card: #fcfaf5; --card-foreground: #302d27; --popover: #fcfaf5; --popover-foreground: #302d27; --primary: #b7863e; --primary-foreground: #21180b; --secondary: #eee8de; --secondary-foreground: #49443b; --muted: #eee9e0; --muted-foreground: #686156; --accent: #ad7c31; --accent-foreground: #241a0e; --destructive: #b5473f; --border: #ded5c7; --input: #e6dece; --ring: #ae7c2d; --radius: .6rem; color-scheme: light; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 body { margin: 0; position: relative; isolation: isolate; min-height: 100vh; background: var(--background); color: var(--foreground); font-family: "Alexandria", "Noto Sans Arabic", sans-serif; }
@@ -25,13 +25,13 @@ a { color: inherit; text-decoration: none; }
 button, input, select { font: inherit; }
 .site-header { height: 82px; padding: 0 7.2%; display: flex; align-items: center; justify-content: space-between; position: absolute; inset: 0 0 auto; z-index: 10; border-bottom: 1px solid #ffffff19; background: linear-gradient(#0c0d0dcc, transparent); }
 .brand { display: flex; gap: 11px; align-items: center; }
-.site-header .brand { text-align: justify; }
-.brand-logo { display: block; width: 138px; height: 62px; object-fit: contain; }
-.footer-logo { width: 152px; height: 75px; }
+.site-header .brand { gap: 5px; text-align: justify; }
+.brand-logo { display: block; width: 66px; height: 56px; object-fit: contain; }
+.footer-logo { width: 150px; height: 124px; }
 .brand-mark { width: 43px; height: 43px; display: grid; place-items: center; border: 1px solid #c99a50; border-radius: 50%; color: #d8ad68; font: 600 17px Georgia, serif; position: relative; }
 .brand-mark span { color: #f4efe5; margin-right: -3px; }
 .brand-name { font-size: 14px; font-weight: 700; color: #f4efe5; }
-.site-header .brand-name { line-height: 2.7; letter-spacing: -0.047em; height: 41px; width: 94px; margin-bottom: -12px; margin-right: -24px; }
+.site-header .brand-name { line-height: 1.2; letter-spacing: -0.047em; height: auto; width: auto; margin: 0; white-space: nowrap; }
 .brand-name b { color: #d3a65e; }
 .brand-name small { display: block; color: #aaa397; font-size: 10px; font-weight: 400; margin-top: 3px; }
 .nav-links { display: flex; align-items: center; gap: 31px; color: #d3cec4; font-size: 13px; }
@@ -209,7 +209,7 @@ button, input, select { font: inherit; }
  .tiktok-copy { flex-basis: calc(100% - 75px); }
  .tiktok-copy h2 { font-size: 17px; }
  .tiktok-follow { margin-right: 70px; }
- .brand-logo { width: 112px; height: 56px; }
+ .brand-logo { width: 60px; height: 50px; }
  .location-section { grid-template-columns: 1fr; gap: 35px; padding: 85px 0; }
 }
 @media(max-width: 480px) {
@@ -398,7 +398,7 @@ button, input, select { font: inherit; }
 .footer { padding: 46px max(6%,calc((100% - 1120px)/2)) 22px; background: radial-gradient(ellipse at 50% 0%,#aa80351b,transparent 44%),#101111; border-top: 1px solid #66502e; }
 .footer-brand-block { display: flex; flex-direction: column; align-items: center; text-align: center; padding-bottom: 28px; }
 .footer-brand-block .brand { justify-content: center; }
-.footer-logo { width: 168px; height: 138px; object-fit: contain; filter: drop-shadow(0 7px 18px #c3985120); }
+.footer-logo { width: 150px; height: 124px; object-fit: contain; filter: drop-shadow(0 7px 18px #c3985120); }
 .footer-brand-block>p { margin: 7px 0 0; color: #c8c0b3; font-size: 14px; }
 .footer-info-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; padding: 22px 0 26px; border-top: 1px solid #ffffff18; border-bottom: 1px solid #ffffff18; }
 .footer-info-card { min-width: 0; min-height: 84px; padding: 16px 15px; display: flex; align-items: center; gap: 12px; background: linear-gradient(145deg,#1c1d1b,#171817); border: 1px solid #36342e; transition: border-color .2s,background .2s,transform .2s; }
@@ -435,7 +435,7 @@ button, input, select { font: inherit; }
 }
 @media(max-width:480px) {
   .footer { padding: 34px 6% 18px; }
-  .footer-logo { width: 145px; height: 118px; }
+  .footer-logo { width: 130px; height: 106px; }
   .footer-brand-block>p { max-width: 270px; font-size: 13px; }
   .footer-info-card { padding: 13px 12px; }
   .footer-info-copy strong { font-size: 12px; }
@@ -712,8 +712,8 @@ button, input, select { font: inherit; }
   .blog-article-copy h2 { font-size: 22px; }
 }
 
-/* Restore the original charcoal-and-gold brand palette. */
-:root { --background: #1c201e; --foreground: #f5f0e6; --card: #202120; --card-foreground: #f5f0e6; --popover: #202120; --popover-foreground: #f5f0e6; --primary: #c99a50; --primary-foreground: #111; --secondary: #2b2c2a; --secondary-foreground: #eee; --muted: #292a28; --muted-foreground: #b9b4aa; --accent: #bd914c; --accent-foreground: #111; --border: #454238; --input: #30312f; --ring: #c99a50; --ambient-sea-glass: rgb(96 155 133 / 0.36); --ambient-dusk-blue: rgb(78 127 154 / 0.30); --ambient-wisteria: rgb(122 102 150 / 0.24); --ambient-warm-sand: rgb(174 143 94 / 0.20); color-scheme: dark; }
+/* Warm light surfaces, charcoal copy, and softened amber accents. */
+:root { --background: #f6f2ea; --foreground: #302d27; --card: #fcfaf5; --card-foreground: #302d27; --popover: #fcfaf5; --popover-foreground: #302d27; --primary: #b7863e; --primary-foreground: #21180b; --secondary: #eee8de; --secondary-foreground: #49443b; --muted: #eee9e0; --muted-foreground: #686156; --accent: #ad7c31; --accent-foreground: #241a0e; --destructive: #b5473f; --border: #ded5c7; --input: #e6dece; --ring: #ae7c2d; --radius: .6rem; --ambient-sea-glass: rgb(142 174 146 / 0.18); --ambient-dusk-blue: rgb(151 177 193 / 0.16); --ambient-wisteria: rgb(183 163 198 / 0.14); --ambient-warm-sand: rgb(190 156 105 / 0.16); color-scheme: light; }
 .trust-strip { background: #141516; border-color: #38342c; box-shadow: none; }
 .trust-strip b { color: #f2ede3; }
 .trust-strip small { color: #b5afa4; }
@@ -825,9 +825,7 @@ button, input, select { font: inherit; }
 .footer-social-link:hover { transform: translateY(-2px); border-color: currentColor; }
 .footer-social-link svg { width: 20px; height: 20px; }
 .footer-social-tiktok:hover { color: #25f4ee; background: #111; }
-.footer-social-whatsapp { color: #25d366; }
-.footer-social-whatsapp span { color: #f4efe5; }
-.footer-social-whatsapp:hover { background: #25d36618; }
+
 @media(max-width: 800px) {
   .review-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .about-photo-note { right: -12px; }
@@ -862,7 +860,7 @@ button, input, select { font: inherit; }
 .footer-social-mark { display: inline-flex; align-items: center; gap: 9px; min-height: 42px; padding: 8px 14px; color: #f4efe5; border: 1px solid #ffffff22; background: #ffffff08; font-size: 13px; }
 .footer-social-mark img { display: block; width: 20px; height: 20px; object-fit: contain; }
 .footer-social-facebook img { filter: none; }
-.footer-social-x img { filter: invert(1); }
+
 .footer-social-snapchat img { width: 24px; height: 24px; }
 .footer-social-instagram img { width: 22px; height: 22px; }
 @media(max-width: 520px) {
@@ -1269,4 +1267,259 @@ button, input, select { font: inherit; }
   .home-hero-slideshow .apartment-photo-slide-2 { animation-delay: 6s !important; }
   .home-hero-slideshow .apartment-photo-slide-3 { animation-delay: 12s !important; }
   .home-hero-slideshow .apartment-photo-slide-4 { animation-delay: 18s !important; }
+}
+
+/* Bright linen surfaces keep the existing gold accents and photo contrast. */
+body::before { opacity: .56; filter: blur(34px); }
+.site-header { background: rgba(248,246,240,.94); border-bottom-color: #d9d0c2; box-shadow: 0 8px 24px #46382012; backdrop-filter: blur(14px); }
+.brand-name,.brand-mark span { color: #302d27; }
+.brand-name small { color: #71695d; }
+.nav-links { color: #514b42; }
+.nav-links>a:not(.nav-book):hover,.nav-links a[aria-current="page"]:not(.nav-book) { color: #8a6125; }
+.nav-book { color: #78571f; border-color: #b88b49; }
+.menu-toggle { color: #302d27; }
+.hero-overlay,.page-hero::after { background: linear-gradient(270deg,#44382caa 0%,#44382c75 43%,#44382c30 76%,#44382c12 100%),linear-gradient(0deg,#453a2e66 0%,transparent 20%,transparent 78%,#453a2e26); }
+.home-hero-shade { background: linear-gradient(to left,rgba(54,43,31,.56) 0%,rgba(54,43,31,.31) 52%,rgba(54,43,31,.06) 100%); }
+  .home-hero { box-shadow: 0 24px 60px #493a241c; }
+  .trust-strip { color: #302d27; background: linear-gradient(135deg,#f8f5ee,#eee9df); border-color: #ddd4c6; box-shadow: 0 15px 40px #493c2610; }
+  .trust-strip b { color: #302d27; }
+  .trust-strip small { color: #625c52; }
+  .trust-strip>i { background: #ddd4c6; }
+  .gallery-section,.apartments-section,.amenities-section,.destination-section,.faq-section { background: linear-gradient(180deg,#f8f5ee,#efebe2); border-color: #ddd4c6; }
+.home-gallery { color: #302d27; background: radial-gradient(ellipse at 50% 48%,#e9dfcb 0%,#f2eee5 57%,#ebe6db 100%); border-color: #d8cdbb; box-shadow: 0 18px 44px #493c2614; }
+.home-gallery-heading h2,.amenities-heading h2,.destination-copy h2,.nearby-heading h3,.faq-heading h2,.reviews-heading h2,.section-title h2 { color: #302d27; }
+.home-gallery-heading p,.amenities-heading p,.destination-copy>p,.nearby-heading>p,.faq-item p,.reviews-heading p { color: #625e56; }
+.home-gallery-controls { color: #4a443b; }
+.home-gallery-arrow { color: #78571f; background: #fbf9f4cc; border-color: #cdbb9c; }
+.gallery-section { border-block-color: #ddd4c6; }
+.section-title>p,.about-copy>p,.location-copy>p,.booking-inner>div>p { color: #625e56; }
+.eyebrow,.text-link,.all-photos,.unit-card-footer a { color: #805b22; }
+.text-link,.all-photos { border-color: #c8b697; }
+.gallery-quote p { color: #49443b; }
+.gallery-quote small { color: #6c655a; }
+.gallery-quote>span,.gallery-caption span { color: #a67831; }
+.photo-ribbon img { filter: brightness(.88); }
+.feature-card,.unit-card,.nearby-card,.location-details,.blog-article { color: #302d27; background: linear-gradient(145deg,#fcfaf5,#f1ede4); border-color: #ddd3c3; box-shadow: 0 14px 34px #493c2612; }
+.feature-card h3,.unit-card-heading h3,.nearby-card h4,.blog-article-copy h2 { color: #302d27; }
+.feature-card p,.apartment-photo-story p,.nearby-card li,.blog-article-copy p,.blog-article-copy p.blog-excerpt { color: #625e56; }
+.feature-icon,.amenity>span,.amenity-card-icon { color: #8a6224; border-color: #d4c5aa; background: #efe7d8; }
+.apartment-photo-story,.trust-quote { color: #302d27; background: linear-gradient(135deg,#f7f4ec,#ede8dd); border-color: #ddd3c3; }
+.trust-quote p { color: #403b33; }
+.gallery-filter button { color: #4c463d; background: #fbf9f4; border-color: #d6cbb9; }
+.gallery-filter button.active,.gallery-filter button:hover { color: #fffaf2; background: #a97830; border-color: #a97830; }
+.booking-section { background: radial-gradient(ellipse at 15% 45%,#c2985118,transparent 43%),#eee9df; border-color: #d8d0c3; }
+.booking-card,.home-hero .booking-card { color: #302d27; background: rgba(251,249,244,.96); border-color: #d8cbb7; box-shadow: 0 18px 44px #493c2618; opacity: 1; }
+.booking-card h3,.booking-card label,.booking-type-fieldset legend,.booking-price-summary,.booking-price-summary span,.booking-price-summary .booking-estimate strong { color: #38342d; }
+.booking-card-heading { border-color: #ded6c9; }
+.booking-card-heading small,.booking-fine { color: #6b645a; }
+.booking-card-icon { color: #8c6325; background: #eee5d5; border-color: #d7c6a6; }
+.booking-type-toggle { background: #eee8de; }
+.booking-type-toggle button,.home-hero .booking-type-toggle button { color: #5b5449; background: #f5f1e9; border: 1px solid #d9d0c2; }
+.booking-type-toggle button:hover:not(.active),.home-hero .booking-type-toggle button:hover:not(.active) { color: #79591f; background: #eee7dc; border-color: #cbb99c; }
+.booking-type-toggle button.active,.home-hero .booking-type-toggle button.active { color: #fffaf2; background: #a97830; border-color: #a97830; }
+.booking-card input,.booking-card select,.home-hero .booking-card input,.home-hero .booking-card select { color: #302d27; background-color: #fffdf9; border-color: #d9d0c2; color-scheme: light; }
+.home-hero .booking-card input:not(.booking-date-picker) { background-color: #fffdf9; }
+.booking-card select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23574e41' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: left 14px center; background-size: 18px 18px; }
+.booking-card input::placeholder { color: #80786c; }
+.home-hero .booking-card label { color: #514b42; }
+.booking-price-summary { background: #f1ece3; border-color: #d7c9b2; }
+.booking-price-summary strong { color: #8a6224; }
+.booking-price-summary strong small { color: #70685d; }
+.booking-price-summary .booking-estimate { border-color: #ded6c9; }
+.booking-perks,.location-address b,.location-address small { color: #575147; }
+.location-address,.location-details { border-color: #d8d0c3; }
+.map-frame { border-color: #d7cbb7; }
+.map-frame iframe,.destination-map iframe { filter: grayscale(.2) contrast(.96); }
+.tiktok-promo { background: linear-gradient(110deg,#f1ede4,#e8e2d6); border-color: #d5c8b2; }
+.tiktok-inner { background: linear-gradient(110deg,#fcfaf5,#f0ebe2 54%,#f7f2e8); border-color: #d6c7ae; box-shadow: 0 15px 38px #4c402b16; }
+.tiktok-copy h2,.tiktok-copy h2 em { color: #302d27; }
+.tiktok-copy p,.tiktok-offer-badge span { color: #625c52; }
+.tiktok-eyebrow,.tiktok-offer-badge strong { color: #805b22; }
+.tiktok-mark { color: #805b22; background: #efe7d9; border-color: #d6c7ae; }
+.tiktok-offer-badge { background: #fbf9f4; border-color: #cdb991; }
+.customer-reviews { background: #eee9df; }
+.reviews-background { filter: saturate(.55) brightness(.94); }
+.reviews-shade { background: linear-gradient(100deg,#f5f1e9e8,#f5f1e9d6 48%,#f5f1e9e8),radial-gradient(ellipse at 50% 0%,#c3985115,transparent 68%); }
+.review-card:not(:first-child),.review-card.review-card-image,.review-grid .review-card-native,.review-grid .review-card-native:first-child { color: #302d27; background: linear-gradient(145deg,#fcfaf5,#f0ece3); border-color: #d8cebd; border-top-color: #bd914c; box-shadow: 0 12px 30px #493c2614; }
+.review-card blockquote,.review-grid .review-card-native blockquote,.review-grid .review-card-native:first-child blockquote { color: #403b33; }
+.review-author strong,.review-image-caption strong,.review-grid .review-card-native .review-author strong,.review-grid .review-card-native:first-child .review-author strong { color: #302d27; }
+.review-author small,.review-image-caption small,.review-grid .review-card-native .review-author small,.review-grid .review-card-native:first-child .review-author small,.review-source { color: #6c655a; }
+.review-author,.review-grid .review-card-native .review-author,.review-grid .review-card-native:first-child .review-author { border-color: #ded6c9; }
+.review-quote { color: #8a6224; background: #f1e8d8; border-color: #d7c6a6; }
+.review-card-image:hover { border-color: #a98243; box-shadow: 0 18px 38px #493c2620; }
+.faq-item,.faq-item[open] { color: #302d27; background: #fbf9f4; border-color: #d7cbb8; }
+.faq-item summary { color: #38342d; }
+.faq-item summary>svg { color: #94691f; }
+.faq-item[open] { background: #f2ede4; }
+.destination-map { border-color: #d6cbb9; }
+.nearby-card li { border-color: #e1d9cd; }
+.nearby-card h4 { border-bottom-color: #b7863e; }
+.unit-features li { color: #4f4a42; background: #f8f5ee; border-color: #dfd7ca; }
+.unit-card-footer,.apartment-catalog-footer { color: #696258; border-color: #ddd5c9; }
+.unit-photo-stage,.unit-photo-cell { background-color: #e7e1d7; }
+.unit-thumbnail,.unit-thumbnail-more { color: #79591f; background: #f0ebe2; border-color: #d5c8b4; }
+.unit-thumbnail-more small { color: #625c52; }
+.unit-thumbnail-rail { scrollbar-color: #b29462 #eee9e0; }
+.google-reviews-cta { color: #302d27; background: linear-gradient(110deg,#fcfaf5,#eee8de); border-color: #d3c3a6; box-shadow: 0 12px 30px #493c2615; }
+.google-review-icon { color: #805b22; background: #efe7d9; border-color: #d3c3a6; }
+.google-review-copy strong { color: #302d27; }
+.google-review-copy small { color: #625c52; }
+.google-review-action { color: #805b22; border-color: #d3c3a6; }
+.google-reviews-cta:hover .google-review-action { color: #fffaf2; background: #a97830; }
+.footer { color: #302d27; background: linear-gradient(180deg,#e9e4da,#ded8cd); border-color: #d0c5b2; }
+.footer-brand-block>p,.footer-bottom,.footer-top>p { color: #625c52; }
+.footer-nav a,.footer-socials-title { color: #514b42; }
+.footer-nav a:hover,.footer-nav a.footer-book-link { color: #805b22; }
+.footer-info-grid,.footer-socials { border-color: #cbc3b6; }
+.footer-info-card,.footer-social-link,.footer-social-mark { color: #302d27; background: linear-gradient(145deg,#f8f5ee,#eee9df); border-color: #d1c8b9; }
+.footer-info-card:hover,.footer-social-link:hover { background: #fffdf8; border-color: #a98243; }
+.footer-info-copy small,.footer-info-arrow,.footer-info-icon,.footer-social-icon,.footer-book-icon { color: #805b22; }
+.footer-info-copy strong,.footer-social-link span { color: #302d27; }
+.footer-info-icon,.footer-social-icon { background: #efe7d9; border-color: #d3c3a6; }
+.footer-social-tiktok:hover { color: #25f4ee; background: #28231b; }
+.about-photo-note { background: #40352aeb; }
+.about-photo-note small { color: #eee3d0; }
+.amenity { border-color: #e0d7c9; background: linear-gradient(135deg,#ffffffa8,#f8f4ecb8); }
+.amenity:hover { border-color: #c6aa78; background: #efe7d9; }
+.building-story-copy h2,.destination-copy h2 em,.nearby-heading h3 em,.faq-heading h2 em { color: #302d27; }
+.building-story-copy>p { color: #625e56; }
+.building-story-tagline { color: #785a2a; }
+.footer-blog { border-color: #cbc3b6; }
+.footer-blog-heading h2,.footer-blog-card-copy strong { color: #302d27; }
+.footer-blog-kicker,.footer-blog-card-copy small { color: #805b22; }
+.footer-blog-heading>a,.footer-blog-card-copy>span { color: #625c52; }
+.footer-blog-card { background: linear-gradient(145deg,#f8f5ee,#eee9df); border-color: #d1c8b9; }
+.footer-blog-card:hover { background: #fffdf8; border-color: #a98243; }
+@media(max-width:800px) {
+  .nav-links { background: rgba(248,246,240,.98); border-bottom-color: #d9d0c2; }
+  .nav-links>a:not(.nav-book) { border-bottom-color: #e5ddd0; }
+}
+
+.home-main #apartment-tour > .home-gallery-heading > .eyebrow { color: #89610a; }
+.home-main #apartment-tour > .home-gallery-heading > p { color: #674809; }
+.home-main > .faq-section .faq-heading > p { color: #76530c; }
+.home-main > .faq-section .faq-heading > .eyebrow { color: #a96b0b; }
+.home-main > .customer-reviews .reviews-heading > .eyebrow { color: #985e04; }
+
+.site-header .brand-logo,
+.footer-brand-block .footer-logo {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.site-header .brand-name { margin-right: 0; }
+
+.home-main .amenities-home .amenity-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: #fffaf2;
+  background: #392f22;
+  border-color: #806544;
+  border-inline-start: 2px solid #a97830;
+  box-shadow: 0 14px 32px #493c2620;
+}
+.home-main .amenities-home .amenity-card::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background: linear-gradient(180deg, #211b14a3 0%, #211b14d9 100%);
+  content: '';
+}
+.home-main .amenities-home .amenity-card-image {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: .92;
+  transition: transform .45s ease, opacity .25s ease;
+}
+.home-main .amenities-home .amenity-card:hover .amenity-card-image { transform: scale(1.04); opacity: 1; }
+.home-main .amenities-home .amenity-card > :not(.amenity-card-image) { position: relative; z-index: 1; }
+.home-main .amenities-home .amenity-card-icon {
+  color: #ffdc93;
+  background: #30271cbd;
+  border: 1px solid #f2d38b70;
+  border-radius: 10px;
+}
+.home-main .amenities-home .amenity-card-number { color: #f1d18c; }
+.home-main .amenities-home .amenity-card h3 { color: #fffaf2; }
+.home-main .amenities-home .amenity-card p { color: #f0e7d9; }
+
+.home-main .apartments-show-more,
+.home-main .amenities-home .section-show-more,
+.home-main .nearby-home .section-show-more,
+.home-main .faq-section .section-show-more {
+  color: #674809;
+  background: #fbf7ef;
+  border-color: #d7c8aa;
+  box-shadow: 0 8px 20px #46382012;
+  transition: background-color .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease;
+}
+.home-main .apartments-show-more:hover,
+.home-main .amenities-home .section-show-more:hover,
+.home-main .nearby-home .section-show-more:hover,
+.home-main .faq-section .section-show-more:hover {
+  color: #4f3707;
+  background: #f3ead9;
+  border-color: #b99250;
+  box-shadow: 0 10px 24px #4638201a;
+}
+.home-main .apartments-show-more > .show-more-icon,
+.home-main .amenities-home .section-show-more > .show-more-icon,
+.home-main .nearby-home .section-show-more > .show-more-icon,
+.home-main .faq-section .section-show-more > .show-more-icon {
+  box-sizing: border-box;
+  width: 28px;
+  height: 28px;
+  padding: 5px;
+  flex: none;
+  color: #76530c;
+  background: #f2e8d6;
+  border: 1px solid #dbc79f;
+  border-radius: 50%;
+  transform: none;
+  transition: background-color .2s ease, color .2s ease, transform .2s ease;
+}
+.home-main .apartments-show-more:hover > .show-more-icon,
+.home-main .amenities-home .section-show-more:hover > .show-more-icon,
+.home-main .nearby-home .section-show-more:hover > .show-more-icon,
+.home-main .faq-section .section-show-more:hover > .show-more-icon {
+  color: #fffaf2;
+  background: #8a6224;
+  border-color: #8a6224;
+  transform: translateY(-1px);
+}
+.home-main .apartments-show-more:focus-visible,
+.home-main .amenities-home .section-show-more:focus-visible,
+.home-main .nearby-home .section-show-more:focus-visible,
+.home-main .faq-section .section-show-more:focus-visible {
+  outline: 2px solid #a97830;
+  outline-offset: 3px;
+}
+
+@media(max-width:800px) {
+  .home-main .amenities-home .amenity-card {
+    min-height: 172px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px;
+    background: #392f22;
+    border: 1px solid #806544;
+    border-inline-start: 2px solid #a97830;
+    border-radius: 12px;
+  }
+  .home-main .amenities-home .amenity-card-icon {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+  }
+  .home-main .amenities-home .amenity-card-icon svg { width: 18px; height: 18px; }
+  .home-main .amenities-home .amenity-card-copy { min-width: 0; width: 100%; }
+  .home-main .amenities-home .amenity-card h3 { font-size: 13px; }
+  .home-main .amenities-home .amenity-card p { font-size: 11px; line-height: 1.7; }
 }
