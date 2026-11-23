@@ -1,4 +1,4 @@
-export const logoUrl = 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Gemini_Generated_Image_e3je9oe3je9oe3je-mmgmp9UKnaUC4oUJwTD8Y7oprc6b88.jpg'
+export const logoUrl = '/relax-zone-logo-transparent.png'
 export const tiktokUrl = 'https://vm.tiktok.com/ZS9P8T1SwPRn2-Cwa7O'
 export const mapUrl = 'https://maps.app.goo.gl/KU9PTeQdfjXcQn9G8?g_st=ac'
 export const googleReviewsUrl = 'https://www.google.com/maps/place/RELAX+ZOON/@21.6112596,39.1219709,17z/data=!3m1!4b1!4m6!3m5!1s0x15c3db1dbc26cc63:0xe728de91ed52090e!8m2!3d21.6112596!4d39.1219709!16s%2Fg%2F11swp9kpc7'
