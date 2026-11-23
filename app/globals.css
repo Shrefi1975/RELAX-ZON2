@@ -1403,10 +1403,10 @@ body::before { opacity: .56; filter: blur(34px); }
 
 .site-header .brand-logo,
 .footer-brand-block .footer-logo {
-  background-color: #392f22;
-  border: 1px solid #725d3e;
-  border-radius: 14px;
-  box-shadow: 0 5px 14px #30241624;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
 .site-header .brand-name { margin-right: 0; }
 
