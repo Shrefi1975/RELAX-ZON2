@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { ArrowUpLeft, Building2, KeyRound, MapPin, MessageCircle, Sparkles, Sofa, Utensils, Wifi, ChevronDown } from 'lucide-react'
+import { ArrowDown, ArrowUp, ArrowUpLeft, Building2, KeyRound, MapPin, MessageCircle, Sparkles, Sofa, Utensils, Wifi } from 'lucide-react'
 
 const nearbyGroups = [
   { title: 'مساجد على بُعد مشي', places: [['مسجد الخيرات', '200 م'], ['مسجد التوحيد', '300 م']] },
@@ -14,18 +14,19 @@ const nearbyGroups = [
 ]
 
 const amenities = [
-  { title: 'مطبخ مجهز بالكامل', description: 'غسالة وثلاجة وميكروويف وأدوات أساسية في الشقق، باستثناء الاستوديو.', icon: Utensils },
-  { title: 'أثاث متكامل', description: 'غرفة نوم وصالة مريحة ومطبخ مجهز لتشعر وكأنك في بيتك.', icon: Sofa },
-  { title: 'إنترنت سريع', description: 'شبكة واي فاي مجانية متاحة في جميع الشقق.', icon: Wifi },
-  { title: 'نظافة منتظمة', description: 'تنظيف أسبوعي وتبديل للمفروشات وعناية بالتفاصيل.', icon: Sparkles },
-  { title: 'دخول ذاتي', description: 'كود خاص لباب الشقة أو استلام المفتاح من الاستقبال.', icon: KeyRound },
-  { title: 'موقع مناسب', description: 'في حي الشاطئ بجدة، بالقرب من الخدمات والمطاعم.', icon: MapPin },
-  { title: 'مصعد لجميع الأدوار', description: 'سهولة الوصول إلى جميع طوابق المبنى.', icon: Building2 },
-  { title: 'دعم مباشر', description: 'فريقنا متاح للرد عبر واتساب طوال أيام الأسبوع.', icon: MessageCircle },
+  { title: 'مطبخ مجهز بالكامل', description: 'غسالة وثلاجة وميكروويف وأدوات أساسية في الشقق، باستثناء الاستوديو.', icon: Utensils, image: '/apartment-14-entry.jpeg' },
+  { title: 'أثاث متكامل', description: 'غرفة نوم وصالة مريحة ومطبخ مجهز لتشعر وكأنك في بيتك.', icon: Sofa, image: '/hero-01-desktop.webp' },
+  { title: 'إنترنت سريع', description: 'شبكة واي فاي مجانية متاحة في جميع الشقق.', icon: Wifi, image: '/hero-04-desktop.webp' },
+  { title: 'نظافة منتظمة', description: 'تنظيف أسبوعي وتبديل للمفروشات وعناية بالتفاصيل.', icon: Sparkles, image: '/hero-02-desktop.webp' },
+  { title: 'دخول ذاتي', description: 'كود خاص لباب الشقة أو استلام المفتاح من الاستقبال.', icon: KeyRound, image: '/apartment-14-hallway.jpeg' },
+  { title: 'موقع مناسب', description: 'في حي الشاطئ بجدة، بالقرب من الخدمات والمطاعم.', icon: MapPin, image: '/relax-zone-facade-night.png' },
+  { title: 'مصعد لجميع الأدوار', description: 'سهولة الوصول إلى جميع طوابق المبنى.', icon: Building2, image: '/hero-03-desktop.webp' },
+  { title: 'دعم مباشر', description: 'فريقنا متاح للرد عبر واتساب طوال أيام الأسبوع.', icon: MessageCircle, image: '/apartment-14-lounge.jpeg' },
 ]
 
 export function AmenitiesHighlights() {
   const [showAllMobile, setShowAllMobile] = useState(false)
+  const MoreIcon = showAllMobile ? ArrowUp : ArrowDown
 
   return <section className="amenities-section amenities-home" aria-labelledby="amenities-title">
     <div className="section-wrap">
@@ -35,7 +36,8 @@ export function AmenitiesHighlights() {
         <p>كل ما تحتاجه لتبدأ إقامتك براحة واطمئنان من أول ليلة.</p>
       </header>
       <div className={`amenities-grid${showAllMobile ? ' is-expanded' : ''}`} id="amenities-list">
-        {amenities.map(({ title, description, icon: Icon }, index) => <article className="amenity-card" key={title}>
+        {amenities.map(({ title, description, icon: Icon, image }, index) => <article className="amenity-card" key={title}>
+          <img className="amenity-card-image" src={image} alt="" aria-hidden="true" loading="lazy" />
           <span className="amenity-card-icon"><Icon aria-hidden="true" /></span>
           <div className="amenity-card-copy">
             <span className="amenity-card-number">{String(index + 1).padStart(2, '0')}</span>
@@ -44,19 +46,20 @@ export function AmenitiesHighlights() {
           </div>
         </article>)}
       </div>
-      <button className="section-show-more" type="button" aria-expanded={showAllMobile} aria-controls="amenities-list" onClick={() => setShowAllMobile((visible) => !visible)}>{showAllMobile ? 'عرض أقل' : 'شاهد المزيد'} <ChevronDown aria-hidden="true" /></button>
+      <button className="section-show-more" type="button" aria-expanded={showAllMobile} aria-controls="amenities-list" onClick={() => setShowAllMobile((visible) => !visible)}>{showAllMobile ? 'عرض أقل' : 'شاهد المزيد'} <MoreIcon className="show-more-icon" aria-hidden="true" /></button>
     </div>
   </section>
 }
 
 export function NearbyHighlights() {
   const [showAllMobile, setShowAllMobile] = useState(false)
+  const MoreIcon = showAllMobile ? ArrowUp : ArrowDown
 
   return <section className="destination-section nearby-home" id="nearby" aria-labelledby="nearby-title">
     <div className="nearby-content section-wrap">
       <div className="nearby-heading"><span className="eyebrow">المدينة حولك</span><h3 id="nearby-title">كل ما تحتاجه <em>بالقرب منك</em></h3><p>أوقات ومسافات تقريبية من موقعنا في حي الشاطئ.</p></div>
       <div className={`nearby-grid${showAllMobile ? ' is-expanded' : ''}`} id="nearby-list">{nearbyGroups.map((group) => <article className="nearby-card" key={group.title}><h4>{group.title}</h4><ul>{group.places.map(([place, distance]) => <li key={place}><span>{place}</span><b>{distance}</b></li>)}</ul></article>)}</div>
-      <button className="section-show-more" type="button" aria-expanded={showAllMobile} aria-controls="nearby-list" onClick={() => setShowAllMobile((visible) => !visible)}>{showAllMobile ? 'عرض أقل' : 'شاهد المزيد'} <ChevronDown aria-hidden="true" /></button>
+      <button className="section-show-more" type="button" aria-expanded={showAllMobile} aria-controls="nearby-list" onClick={() => setShowAllMobile((visible) => !visible)}>{showAllMobile ? 'عرض أقل' : 'شاهد المزيد'} <MoreIcon className="show-more-icon" aria-hidden="true" /></button>
     </div>
   </section>
 }

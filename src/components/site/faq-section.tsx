@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { ChevronDown, MessageCircle, Plus } from 'lucide-react'
+import { ArrowDown, ArrowUp, MessageCircle, Plus } from 'lucide-react'
 
 const questions = [
   { question: 'ما وقت الدخول والخروج؟', answer: 'الدخول من الساعة 4 عصراً والخروج الساعة 2 ظهراً. للدخول المبكر تواصل معنا.' },
@@ -22,6 +22,7 @@ const questions = [
 
 export function FaqSection() {
   const [showAllMobile, setShowAllMobile] = useState(false)
+  const MoreIcon = showAllMobile ? ArrowUp : ArrowDown
 
   return <section className="faq-section" aria-labelledby="faq-title">
     <div className="section-wrap">
@@ -30,7 +31,7 @@ export function FaqSection() {
         <summary><span>{question}</span><Plus aria-hidden="true" /></summary>
         <p>{answer}</p>
       </details>)}</div>
-      <button className="section-show-more" type="button" aria-expanded={showAllMobile} aria-controls="faq-list" onClick={() => setShowAllMobile((visible) => !visible)}>{showAllMobile ? 'عرض أقل' : 'شاهد المزيد'} <ChevronDown aria-hidden="true" /></button>
+      <button className="section-show-more" type="button" aria-expanded={showAllMobile} aria-controls="faq-list" onClick={() => setShowAllMobile((visible) => !visible)}>{showAllMobile ? 'عرض أقل' : 'شاهد المزيد'} <MoreIcon className="show-more-icon" aria-hidden="true" /></button>
       <a className="faq-contact button-gold" href="https://wa.me/966560920209" target="_blank" rel="noreferrer"><MessageCircle size={18} /> لم تجد إجابة سؤالك؟ تواصل معنا عبر واتساب</a>
     </div>
   </section>

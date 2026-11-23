@@ -11,7 +11,7 @@ export function HomeGalleryCarousel({ images }: { images: GalleryImage[] }) {
   const move = (direction: number) => setActiveIndex((current) => (current + direction + images.length) % images.length)
 
   return <section className="home-gallery" id="apartment-tour" dir="rtl" aria-labelledby="home-gallery-title">
-    <header className="home-gallery-heading"><span className="eyebrow">ريلاكس زون · جدة</span><h2 id="home-gallery-title">جولة داخل الشقق</h2><p>اسحب الصور يميناً ويساراً أو استخدم الأسهم لتدويرها.</p></header>
+    <header className="home-gallery-heading"><span className="eyebrow">ريلاكس زون  2· جدة</span><h2 id="home-gallery-title">جولة داخل الشقق</h2><p>اسحب الصور يميناً ويساراً أو استخدم الأسهم لتدويرها.</p></header>
     <div className="home-gallery-track" aria-label="معرض صور الشقق">
       {images.map((image, index) => {
         const position = (index - activeIndex + images.length) % images.length

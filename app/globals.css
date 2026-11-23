@@ -1394,3 +1394,132 @@ body::before { opacity: .56; filter: blur(34px); }
   .nav-links { background: rgba(248,246,240,.98); border-bottom-color: #d9d0c2; }
   .nav-links>a:not(.nav-book) { border-bottom-color: #e5ddd0; }
 }
+
+.home-main #apartment-tour > .home-gallery-heading > .eyebrow { color: #89610a; }
+.home-main #apartment-tour > .home-gallery-heading > p { color: #674809; }
+.home-main > .faq-section .faq-heading > p { color: #76530c; }
+.home-main > .faq-section .faq-heading > .eyebrow { color: #a96b0b; }
+.home-main > .customer-reviews .reviews-heading > .eyebrow { color: #985e04; }
+
+.site-header .brand-logo,
+.footer-brand-block .footer-logo {
+  background-color: #392f22;
+  border: 1px solid #725d3e;
+  border-radius: 14px;
+  box-shadow: 0 5px 14px #30241624;
+}
+.site-header .brand-name { margin-right: 0; }
+
+.home-main .amenities-home .amenity-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: #fffaf2;
+  background: #392f22;
+  border-color: #806544;
+  border-inline-start: 2px solid #a97830;
+  box-shadow: 0 14px 32px #493c2620;
+}
+.home-main .amenities-home .amenity-card::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background: linear-gradient(180deg, #211b14a3 0%, #211b14d9 100%);
+  content: '';
+}
+.home-main .amenities-home .amenity-card-image {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: .92;
+  transition: transform .45s ease, opacity .25s ease;
+}
+.home-main .amenities-home .amenity-card:hover .amenity-card-image { transform: scale(1.04); opacity: 1; }
+.home-main .amenities-home .amenity-card > :not(.amenity-card-image) { position: relative; z-index: 1; }
+.home-main .amenities-home .amenity-card-icon {
+  color: #ffdc93;
+  background: #30271cbd;
+  border: 1px solid #f2d38b70;
+  border-radius: 10px;
+}
+.home-main .amenities-home .amenity-card-number { color: #f1d18c; }
+.home-main .amenities-home .amenity-card h3 { color: #fffaf2; }
+.home-main .amenities-home .amenity-card p { color: #f0e7d9; }
+
+.home-main .apartments-show-more,
+.home-main .amenities-home .section-show-more,
+.home-main .nearby-home .section-show-more,
+.home-main .faq-section .section-show-more {
+  color: #674809;
+  background: #fbf7ef;
+  border-color: #d7c8aa;
+  box-shadow: 0 8px 20px #46382012;
+  transition: background-color .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease;
+}
+.home-main .apartments-show-more:hover,
+.home-main .amenities-home .section-show-more:hover,
+.home-main .nearby-home .section-show-more:hover,
+.home-main .faq-section .section-show-more:hover {
+  color: #4f3707;
+  background: #f3ead9;
+  border-color: #b99250;
+  box-shadow: 0 10px 24px #4638201a;
+}
+.home-main .apartments-show-more > .show-more-icon,
+.home-main .amenities-home .section-show-more > .show-more-icon,
+.home-main .nearby-home .section-show-more > .show-more-icon,
+.home-main .faq-section .section-show-more > .show-more-icon {
+  box-sizing: border-box;
+  width: 28px;
+  height: 28px;
+  padding: 5px;
+  flex: none;
+  color: #76530c;
+  background: #f2e8d6;
+  border: 1px solid #dbc79f;
+  border-radius: 50%;
+  transform: none;
+  transition: background-color .2s ease, color .2s ease, transform .2s ease;
+}
+.home-main .apartments-show-more:hover > .show-more-icon,
+.home-main .amenities-home .section-show-more:hover > .show-more-icon,
+.home-main .nearby-home .section-show-more:hover > .show-more-icon,
+.home-main .faq-section .section-show-more:hover > .show-more-icon {
+  color: #fffaf2;
+  background: #8a6224;
+  border-color: #8a6224;
+  transform: translateY(-1px);
+}
+.home-main .apartments-show-more:focus-visible,
+.home-main .amenities-home .section-show-more:focus-visible,
+.home-main .nearby-home .section-show-more:focus-visible,
+.home-main .faq-section .section-show-more:focus-visible {
+  outline: 2px solid #a97830;
+  outline-offset: 3px;
+}
+
+@media(max-width:800px) {
+  .home-main .amenities-home .amenity-card {
+    min-height: 172px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px;
+    background: #392f22;
+    border: 1px solid #806544;
+    border-inline-start: 2px solid #a97830;
+    border-radius: 12px;
+  }
+  .home-main .amenities-home .amenity-card-icon {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+  }
+  .home-main .amenities-home .amenity-card-icon svg { width: 18px; height: 18px; }
+  .home-main .amenities-home .amenity-card-copy { min-width: 0; width: 100%; }
+  .home-main .amenities-home .amenity-card h3 { font-size: 13px; }
+  .home-main .amenities-home .amenity-card p { font-size: 11px; line-height: 1.7; }
+}
