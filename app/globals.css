@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lato:wght@400;700&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap');
 @import "tailwindcss" source(none);
 @source "../src";
 @source "./";
@@ -1409,6 +1410,18 @@ body::before { opacity: .56; filter: blur(34px); }
   box-shadow: none;
 }
 .site-header .brand-name { margin-right: 0; }
+
+.home-main .home-hero-copy > p { color: #e1ddd6; }
+.home-main #gallery .section-title > .eyebrow { font-size: 14px; font-weight: 700; }
+.home-main #gallery .section-title > p { color: #1e1d1b; }
+.home-main .amenities-home .amenities-heading > .eyebrow { font-size: 14px; }
+.home-main .amenities-home .amenities-heading > p { color: #000000; }
+.home-main #amenities-list { font-family: system-ui; }
+.home-main #nearby .nearby-heading > .eyebrow { font-size: 14px; }
+.home-main #nearby .nearby-heading > p { color: #0a0a0a; }
+.home-main .faq-section .faq-heading > p { color: #4a463e; }
+.home-main .customer-reviews .reviews-heading > .eyebrow { font-size: 14px; }
+.footer-brand-block > p { color: #454442; }
 
 .home-main .amenities-home .amenity-card {
   position: relative;
