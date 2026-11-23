@@ -25,13 +25,13 @@ a { color: inherit; text-decoration: none; }
 button, input, select { font: inherit; }
 .site-header { height: 82px; padding: 0 7.2%; display: flex; align-items: center; justify-content: space-between; position: absolute; inset: 0 0 auto; z-index: 10; border-bottom: 1px solid #ffffff19; background: linear-gradient(#0c0d0dcc, transparent); }
 .brand { display: flex; gap: 11px; align-items: center; }
-.site-header .brand { text-align: justify; }
-.brand-logo { display: block; width: 124px; height: 56px; object-fit: contain; }
+.site-header .brand { gap: 5px; text-align: justify; }
+.brand-logo { display: block; width: 66px; height: 56px; object-fit: contain; }
 .footer-logo { width: 150px; height: 124px; }
 .brand-mark { width: 43px; height: 43px; display: grid; place-items: center; border: 1px solid #c99a50; border-radius: 50%; color: #d8ad68; font: 600 17px Georgia, serif; position: relative; }
 .brand-mark span { color: #f4efe5; margin-right: -3px; }
 .brand-name { font-size: 14px; font-weight: 700; color: #f4efe5; }
-.site-header .brand-name { line-height: 2.7; letter-spacing: -0.047em; height: 41px; width: 94px; margin-bottom: -12px; margin-right: -24px; }
+.site-header .brand-name { line-height: 1.2; letter-spacing: -0.047em; height: auto; width: auto; margin: 0; white-space: nowrap; }
 .brand-name b { color: #d3a65e; }
 .brand-name small { display: block; color: #aaa397; font-size: 10px; font-weight: 400; margin-top: 3px; }
 .nav-links { display: flex; align-items: center; gap: 31px; color: #d3cec4; font-size: 13px; }
@@ -209,7 +209,7 @@ button, input, select { font: inherit; }
  .tiktok-copy { flex-basis: calc(100% - 75px); }
  .tiktok-copy h2 { font-size: 17px; }
  .tiktok-follow { margin-right: 70px; }
- .brand-logo { width: 100px; height: 50px; }
+ .brand-logo { width: 60px; height: 50px; }
  .location-section { grid-template-columns: 1fr; gap: 35px; padding: 85px 0; }
 }
 @media(max-width: 480px) {
